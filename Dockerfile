@@ -1,20 +1,17 @@
-# Use an official Node.js runtime as a parent image
-FROM node:16
-
-# Set the working directory in the container
+FROM node:latest
+# make the 'app' folder the current working directory
 WORKDIR /usr/src/app
-
-# Copy package.json and package-lock.json to the working directory
+# copy 'package.json' to install dependencies
 COPY package*.json ./
-
-# Install app dependencies
+# install simple http server for serving static content
+RUN npm install -g http-server
+# install dependencies
 RUN npm install
-
-# Copy the app source code to the container
+# copy files and folders to the current working directory (i.e. 'app' folder)
+RUN npm install html-webpack-plugin --save-dev
+# copy 'package.json' to install dependencies
 COPY . .
-
-# Expose port 8080 to the outside world
+# build app for production with minification
+RUN npm run build
 EXPOSE 8080
-
-# Define the command to run your app
-CMD ["npm", "run", "serve"]
+CMD ["http-server", "dist" ]
