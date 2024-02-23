@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- Your content for the Forms category page -->
-    <h1>Forms Page!</h1>
+    <h1 id="title">Forms Page</h1>
     <a>Wellcome to Forms Page!</a>
     <h2>Student Registration Form</h2>
     <form @submit.prevent="submitForm">

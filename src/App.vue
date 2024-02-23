@@ -1,13 +1,12 @@
 <template>
-  <div id="app">
-    <p>Dark theme: {{ isDark }}</p>
+  <h1>Pickleib Test</h1>
+  <p>Dark theme: {{ isDark }}</p>
 
-    <button @click="toggleDark">
-      Toggle Color Mode
-    </button>
+  <button @click="toggleDark">
+    Toggle Color Mode
+  </button>
 
-    <router-view />
-  </div>
+  <router-view />
 </template>
 
 <script>
