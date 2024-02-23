@@ -22,3 +22,7 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### Docker image
+docker build -t umutayb/vue-test-website:latest .
+docker push umutayb/vue-test-website:latest
