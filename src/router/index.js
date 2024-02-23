@@ -1,6 +1,6 @@
 // router/index.js
 import { createRouter, createWebHistory } from "vue-router";
-import CategoryLayout from "@/components/CategoryLayout.vue";
+import CategoryLayout from "@/components/categories/CategoryLayout.vue";
 import ElementsPage from "@/views/ElementsPage.vue";
 import FormsPage from "@/views/FormsPage.vue";
 import AlertsFrameWindowsPage from "@/views/AlertsFrameWindowsPage.vue";

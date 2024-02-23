@@ -1,14 +1,32 @@
-<!-- App.vue -->
 <template>
   <div id="app">
+    <p>Dark theme: {{ isDark }}</p>
+
+    <button @click="toggleDark">
+      Toggle Color Mode
+    </button>
+
     <router-view />
   </div>
 </template>
 
 <script>
+import { useDark } from "@vueuse/core";
+
 export default {
   data() {
-    return {};
+    return {
+      // Use isDark as a data property to make it reactive
+      isDark: useDark(),
+    };
+  },
+  methods: {
+    // Define a method to toggle the dark mode
+    toggleDark() {
+      this.isDark = !this.isDark;
+      // Optionally, you can use a library function to set the dark mode (if supported)
+      document.documentElement.classList.toggle("dark", this.isDark);
+    },
   },
 };
 </script>
@@ -23,5 +41,11 @@ export default {
 
 h2 {
   margin-bottom: 10px;
+}
+
+/* Optionally, you can define dark mode styles using a class */
+.dark {
+  background-color: #1a1a1a;
+  color: #ffffff;
 }
 </style>
