@@ -1,31 +1,41 @@
 <template>
-  <h1>Pickleib Test</h1>
-  <p>Dark theme: {{ isDark }}</p>
+  <div id="app" :class="{ dark: isDark }">
+    <h1>Pickleib Test</h1>
+    <p>Dark theme: {{ isDark }}</p>
 
-  <button @click="toggleDark">
-    Toggle Color Mode
-  </button>
+    <button @click="toggleDark">
+      Toggle Color Mode
+    </button>
 
-  <router-view />
+    <router-view />
+  </div>
 </template>
 
 <script>
-import { useDark } from "@vueuse/core";
+import { ref, onMounted } from 'vue';
+import { useDark } from '@vueuse/core';
 
 export default {
-  data() {
-    return {
-      // Use isDark as a data property to make it reactive
-      isDark: useDark(),
-    };
-  },
-  methods: {
+  setup() {
+    // Use ref to make isDark reactive
+    const isDark = ref(useDark());
+
     // Define a method to toggle the dark mode
-    toggleDark() {
-      this.isDark = !this.isDark;
+    const toggleDark = () => {
+      isDark.value = !isDark.value;
       // Optionally, you can use a library function to set the dark mode (if supported)
-      document.documentElement.classList.toggle("dark", this.isDark);
-    },
+      document.documentElement.classList.toggle('dark', isDark.value);
+    };
+
+    // Optionally, you can set the dark mode on component mount
+    onMounted(() => {
+      document.documentElement.classList.toggle('dark', true);
+    });
+
+    return {
+      isDark,
+      toggleDark,
+    };
   },
 };
 </script>

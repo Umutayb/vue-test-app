@@ -19,7 +19,8 @@
       <label for="mobile">Mobile (10 Digits):</label><br>
       <input type="tel" id="mobile" name="mobile" placeholder="0000 00 00 00" pattern="[0-9]{10}" v-model="formData.mobile"><br>
       <label for="dob">Date of Birth:</label><br>
-      <input type="date" id="dob" name="dob" v-model="formData.dob"><br>
+      <VueDatePicker id="dob" :format="dateFormat" :enable-time-picker="false" v-model="formattedDob"></VueDatePicker>
+      <p>Selected Date: {{ selectedDate }}</p>
       <label for="hobbies">Hobbies:</label><br>
       <input type="text" id="hobbies" name="hobbies" placeholder="Cooking, Reading..." v-model="formData.hobbies"><br>
       <!--
@@ -30,14 +31,14 @@
       <input type="text" id="currentAddress" name="currentAddress" placeholder="111B 12" v-model="formData.currentAddress"><br>
       <label for="city">City:</label><br>
       <input id="city" name="city" placeholder="New York" v-model="formData.city"><br>      
-      <input type="submit" value="Submit">
+      <input type="submit" value="Submit" id="submit">
     </form>
 
     <!-- Modal -->
     <div class="modal" v-show="showModal">
       <div class="modal-content">
         <span class="close" @click="closeModal">&times;</span>
-        <h2>Submitted Information</h2>
+        <h2 id="submission-title">Submitted Information</h2>
         <table class="submitted-info-table">
           <tr v-for="(value, key) in filteredFormDataWithCapitalizedKeys" :key="key">
             <td class="table-key">{{ capitalizeFirstLetter(key) }}</td>
@@ -50,19 +51,45 @@
 </template>
 
 <script>
+import VueDatePicker from '@vuepic/vue-datepicker';
+import '@vuepic/vue-datepicker/dist/main.css'
+
 export default {
+  components: {
+    VueDatePicker,
+  },
   data() {
     return {
       formData: {
         gender: 'default'
       },
       formSubmitted: false, // Added flag to track form submission
-      showModal: false
+      showModal: false,
+      selectedDate: null,
+      dateFormat: 'yyyy-MM-dd', // Customize the date format as needed
     };
   },
   methods: {
     capitalizeFirstLetter(str) {
       return str.charAt(0).toUpperCase() + str.slice(1);
+    },
+    getFormattedDate(date) {
+      if(date){
+        // Implement logic to parse the formatted date and return a Date object
+        // Example: If the format is 'DD MM YYYY', you may split the string and create a Date object
+        const day = date.getDate();
+        const month = date.getMonth() + 1;
+        const year = date.getFullYear();
+        return `${year}-${month}-${day}`;
+      }
+      else return null;
+    },
+    formatKey(key){
+      switch(key){
+        case 'dob': return "Date of Birth";
+        case 'currentAddress': return "Current Address"
+        default: return this.capitalizeFirstLetter(key);
+      }
     },
     shouldDisplayField(key) {
     // If the field is 'gender' and its value is 'default', don't display it
@@ -106,9 +133,24 @@ export default {
     },
     filteredFormDataWithCapitalizedKeys() {
       return Object.fromEntries(
-        Object.entries(this.filteredFormData).map(([key, value]) => [this.capitalizeFirstLetter(key), value])
+        Object.entries(this.filteredFormData).map(([key, value]) => [this.formatKey(key), value])
       );
-    }
+    },
+    formattedDob: {
+      get() {
+        // Return the formatted date for display
+        if (this.formData.dob) {
+          return this.formData.dob; // Adjust the format as needed
+        } 
+        else {
+          return null;
+        }
+      },
+      set(value) {
+        // Set the original value to formData.dob
+        this.formData.dob = this.getFormattedDate(value);
+      },
+    },
   }
 };
 </script>
