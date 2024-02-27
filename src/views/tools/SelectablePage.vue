@@ -2,7 +2,7 @@
     <div>
       <h2>Widgets Page</h2>
       <a>Wellcome to Widgets!</a>
-      <v-select :options="countriesList" :key="code" />
+      <v-select :options="countriesList" id="countriesDropDown"/>
       <!-- Your content for the Forms category page -->
     </div>
   </template>
