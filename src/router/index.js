@@ -1,11 +1,12 @@
 // router/index.js
 import { createRouter, createWebHistory } from "vue-router";
 import CategoryLayout from "@/components/categories/CategoryLayout.vue";
-import ElementsPage from "@/views/ElementsPage.vue";
-import FormsPage from "@/views/FormsPage.vue";
-import AlertsFrameWindowsPage from "@/views/AlertsFrameWindowsPage.vue";
-import WidgetsPage from "@/views/WidgetsPage.vue";
-import InteractionsPage from "@/views/InteractionsPage.vue";
+import ElementsPage from "@/views/categories/ElementsPage.vue";
+import FormsPage from "@/views/categories/FormsPage.vue";
+import AlertsFrameWindowsPage from "@/views/categories/AlertsFrameWindowsPage.vue";
+import WidgetsPage from "@/views/categories/WidgetsPage.vue";
+import InteractionsPage from "@/views/categories/InteractionsPage.vue";
+import DropDownPage from "@/views/tools/DropDownPage.vue";
 
 const routes = [
   {
@@ -20,6 +21,11 @@ const routes = [
   { path: "/alerts", name: "alerts", component: AlertsFrameWindowsPage },
   { path: "/widgets", name: "widgets", component: WidgetsPage },
   { path: "/interactions", name: "interactions", component: InteractionsPage },
+  { path: "/sortable", name: "sortable", component: InteractionsPage },
+  { path: "/dropDown", name: "dropDown", component: DropDownPage },
+  { path: "/resizable", name: "resizable", component: InteractionsPage },
+  { path: "/droppable", name: "droppable", component: InteractionsPage },
+  { path: "/draggable", name: "draggable", component: InteractionsPage },
 ];
 
 const router = createRouter({
