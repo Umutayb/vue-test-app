@@ -33,7 +33,3 @@ export default {
   },
 };
 </script>
-
-<style>
-/* Add styling for your category cards and layout */
-</style>

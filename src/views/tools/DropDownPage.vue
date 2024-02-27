@@ -18,12 +18,13 @@
     data() {
       return {
         countriesList: Object.values(require("countries-list").countries).map(country => country.name),
-        isDark: false
+        isDark: true
       };
     },
     created (){
     this.emitter.on('isDark', (evt) => {
       this.isDark = evt.isDark;
+      console.log(this.isDark);
     })
   }
 }
