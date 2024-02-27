@@ -28,6 +28,6 @@ export default {
 }
 
 .category-card:hover {
-  background-color: #f0f0f0;
+  background-color: #4e6172;
 }
 </style>
