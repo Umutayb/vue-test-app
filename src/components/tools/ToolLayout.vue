@@ -23,7 +23,7 @@
       return {
         tools: [
           { name: "Sortable", routeName: "sortable" },
-          { name: "Selectable", routeName: "selectable" },
+          { name: "DropDown", routeName: "dropDown" },
           { name: "Resizable", routeName: "resizable" },
           { name: "Droppable", routeName: "droppable" },
           { name: "Draggable", routeName: "draggable" },
