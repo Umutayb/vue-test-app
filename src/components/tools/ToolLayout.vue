@@ -1,15 +1,14 @@
 <!-- ToolLayout.vue -->
 <template>
-    <tools>
       <!-- Tool buttons (Navigation Links) -->
       <ToolButton
         v-for="tool in tools"
         :key="tool.routeName"
         :toolName="tool.name"
-        :id="tool.name"
+        :name="tool.name"
         :routeName="tool.routeName"
+        id="tool"
       />
-    </tools>
   </template>
   
   <script>

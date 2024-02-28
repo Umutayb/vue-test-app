@@ -7,7 +7,7 @@
       Toggle Color Mode
     </button>
 
-    <router-view @customEvent="handleCustomEvent" />
+    <router-view />
   </div>
 </template>
 
@@ -27,10 +27,6 @@ export default {
       document.documentElement.classList.toggle('dark', this.isDark);
       // Emit a custom event when dark mode is toggled
       this.emitter.emit('isDark', { isDark: this.isDark });
-    },
-    handleCustomEvent(eventData) {
-      // Handle the emitted custom event in App.vue
-      console.log('Received custom event in App.vue:', eventData);
     },
   },
   setup() {
