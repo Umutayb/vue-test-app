@@ -1,15 +1,14 @@
 <!-- ToolLayout.vue -->
 <template>
-    <tools>
       <!-- Tool buttons (Navigation Links) -->
       <ToolButton
         v-for="tool in tools"
         :key="tool.routeName"
         :toolName="tool.name"
-        :id="tool.name"
+        :name="tool.name"
         :routeName="tool.routeName"
+        id="tool"
       />
-    </tools>
   </template>
   
   <script>
@@ -23,7 +22,7 @@
       return {
         tools: [
           { name: "Sortable", routeName: "sortable" },
-          { name: "DropDown", routeName: "dropDown" },
+          { name: "Dropdown", routeName: "dropDown" },
           { name: "Resizable", routeName: "resizable" },
           { name: "Droppable", routeName: "droppable" },
           { name: "Draggable", routeName: "draggable" },
