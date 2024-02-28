@@ -1,16 +1,14 @@
 <!-- CategoryLayout.vue -->
 <template>
-  <categories>
-    <!-- Category Cards (Navigation Links) -->
-    <CategoryCard
+  <CategoryCard
       v-for="category in categories"
       :key="category.routeName"
       :categoryName="category.name"
       :categoryDescription="category.description"
-      :data-testid="category.name"
+      :name="category.name"
       :routeName="category.routeName"
+      id="category-card"
     />
-  </categories>
 </template>
 
 <script>
