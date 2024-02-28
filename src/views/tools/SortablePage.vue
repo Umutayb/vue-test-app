@@ -34,7 +34,6 @@
 </template>
 
 <script>
-
 export default {
   data() {
     return {
@@ -62,15 +61,26 @@ export default {
       return this.items.filter((item) => item.list === list);
     },
     startDrag(event, item) {
-      console.log(item);
       event.dataTransfer.dropEffect = 'move';
       event.dataTransfer.effectAllowed = 'move';
       event.dataTransfer.setData('itemID', item.id);
     },
-    onDrop(event, list) {
+    onDrop(event, newList) {
       const itemID = event.dataTransfer.getData('itemID');
-      const item = this.items.find((item) => item.id == itemID);
-      item.list = list;
+      const draggedItem = this.items.find((item) => item.id == itemID);
+
+      // Remove the item from the old list
+      const oldListIndex = this.items.findIndex((item) => item.id == itemID);
+      this.items.splice(oldListIndex, 1);
+
+      // Find the index to insert the item into the new list
+      const newListIndex = this.items.findIndex((item) => item.list === newList);
+
+      // Determine if the item is moved up or down within the same list
+      const isMoveUp = oldListIndex > newListIndex;
+
+      // Insert the item into the new list at the correct index
+      this.items.splice(isMoveUp ? newListIndex : newListIndex + 1, 0, { ...draggedItem, list: newList });
     },
   },
 };
