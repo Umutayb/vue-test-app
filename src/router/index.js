@@ -28,7 +28,7 @@ const routes = [
   { path: "/resizable", name: "resizable", component: InteractionsPage },
   { path: "/droppable", name: "droppable", component: InteractionsPage },
   { path: "/draggable", name: "draggable", component: InteractionsPage },
-  { path: "/tallPage", name: "tall", component: TallPage },
+  { path: "/tall", name: "tall", component: TallPage },
 ];
 
 const router = createRouter({
