@@ -30,7 +30,7 @@
     display: block;
     text-decoration: none;
     color: inherit;
-    border: 1px solid  #4e6172;
+    border: 1px solid #2c3e50;
     padding: 20px;
     cursor: pointer;
     margin: 10px;
@@ -41,7 +41,7 @@
   }
   
   .dark-tool-button:hover {
-    color: #ffff;
-    background-color: #4e6172;
-  }
-  </style>
+  color: #ffff;
+  background-color: #4e6172;
+}
+</style>

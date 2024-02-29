@@ -18,7 +18,7 @@
         isDark: true
       };
     },
-    created (){
+    mounted(){
     this.emitter.on('isDark', (evt) => {
       this.isDark = evt.isDark;
       console.log(this.isDark)
@@ -32,7 +32,7 @@
   display: block;
   text-decoration: none;
   color: inherit;
-  border: 1px solid  #4e6172;
+  border: 1px solid #2c3e50;
   padding: 20px;
   cursor: pointer;
   margin: 10px;
@@ -43,6 +43,7 @@
 }
 
 .dark-category-card:hover {
+  color: #ffff;
   background-color: #4e6172;
 }
 </style>
