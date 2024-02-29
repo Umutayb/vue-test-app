@@ -1,6 +1,6 @@
 <template>
   <div id="app" :class="{ dark: isDark }">
-    <h1>Pickleib Test</h1>
+    <h1 class="clickable-title" @click="goToDestination">Pickleib Test</h1>
     <p>Dark theme: {{ isDark }}</p>
 
     <button @click="toggleDark">
@@ -16,16 +16,22 @@ import { ref, onMounted } from 'vue';
 import { useDark } from '@vueuse/core';
 
 export default {
+  methods: {
+    goToDestination() {
+      // Use $router.push to navigate programmatically
+      this.$router.push('/');
+    },
+    toggleDark() {
+      this.isDark = !this.isDark;
+      // Optionally, you can use a library function to set the dark mode (if supported)
+      document.documentElement.classList.toggle('dark', this.isDark);
+      // Emit a custom event when dark mode is toggled
+      this.emitter.emit('isDark', { isDark: this.isDark });
+    },
+  },
   setup() {
     // Use ref to make isDark reactive
     const isDark = ref(useDark());
-
-    // Define a method to toggle the dark mode
-    const toggleDark = () => {
-      isDark.value = !isDark.value;
-      // Optionally, you can use a library function to set the dark mode (if supported)
-      document.documentElement.classList.toggle('dark', isDark.value);
-    };
 
     // Optionally, you can set the dark mode on component mount
     onMounted(() => {
@@ -34,7 +40,6 @@ export default {
 
     return {
       isDark,
-      toggleDark,
     };
   },
 };
@@ -56,5 +61,13 @@ h2 {
 .dark {
   background-color: #1a1a1a;
   color: #ffffff;
+}
+
+.clickable-title {
+  /* Change styles on hover */
+  &:hover {
+    cursor: pointer;
+    color: #384b5d; /* Change the color on hover */
+  }
 }
 </style>
