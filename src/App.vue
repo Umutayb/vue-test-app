@@ -78,12 +78,7 @@ h2 {
   }
 }
 
-.white-title {
-  font-weight: bold;
-  color: #fff;
-}
-
-.bold-title {
+.bold-title{
   font-weight: bold;
 }
 </style>
