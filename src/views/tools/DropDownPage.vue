@@ -21,7 +21,7 @@
         isDark: true
       };
     },
-    created (){
+    mounted (){
     this.emitter.on('isDark', (evt) => {
       this.isDark = evt.isDark;
       console.log(this.isDark);
