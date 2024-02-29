@@ -26,7 +26,7 @@
           { name: "Resizable", routeName: "resizable" },
           { name: "Droppable", routeName: "droppable" },
           { name: "Draggable", routeName: "draggable" },
-          { name: "Scrollable", routeName: "scrollable" },
+          { name: "Tall Page", routeName: "tall" },
         ],
       };
     },

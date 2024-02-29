@@ -1,10 +1,7 @@
 <template>
     <div>
-      <h2>Scrollable Page</h2>
-      <a>Where the scrolling of page is possible</a>
-      <div id="image">
-        <img :src="image"/>
-      </div>
+      <h2>Tall Page</h2>
+      <a>Long page which can be scrolling</a>
       <div id="image">
         <img :src="image"/>
       </div>
