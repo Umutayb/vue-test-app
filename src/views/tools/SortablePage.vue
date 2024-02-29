@@ -1,34 +1,40 @@
 <template>
-  <div
-    class="drop-zone"
-    @drop="onDrop($event, 1)"
-    @dragover.prevent
-    @dragenter.prevent
-  >
+  <div>
+    <h2>Sortable Page</h2>
+    <a>Gota sort'em all!</a>
     <div
-      class="drag-el"
-      v-for="item in getList(1)"
-      :key="item.title"
-      draggable="true"
-      @dragstart="startDrag($event, item)"
+      class="drop-zone"
+      @drop="onDrop($event, 1)"
+      @dragover.prevent
+      @dragenter.prevent
     >
-      {{ item.title }}
+      <p class="bold-title">First List</p>
+      <div
+        class="drag-el"
+        v-for="item in getList(1)"
+        :key="item.title"
+        draggable="true"
+        @dragstart="startDrag($event, item)"
+      >
+        {{ item.title }}
+      </div>
     </div>
-  </div>
-  <div
-    class="drop-zone"
-    @drop="onDrop($event, 2)"
-    @dragover.prevent
-    @dragenter.prevent
-  >
     <div
-      class="drag-el"
-      v-for="item in getList(2)"
-      :key="item.title"
-      draggable="true"
-      @dragstart="startDrag($event, item)"
+      class="drop-zone"
+      @drop="onDrop($event, 2)"
+      @dragover.prevent
+      @dragenter.prevent
     >
-      {{ item.title }}
+      <p class="bold-title">Second List</p>
+      <div
+        class="drag-el"
+        v-for="item in getList(2)"
+        :key="item.title"
+        draggable="true"
+        @dragstart="startDrag($event, item)"
+      >
+        {{ item.title }}
+      </div>
     </div>
   </div>
 </template>
@@ -54,7 +60,14 @@ export default {
           list: 2,
         },
       ],
+      isDark: true
     };
+  },
+  created (){
+      this.emitter.on('isDark', (evt) => {
+        this.isDark = evt.isDark;
+        console.log(this.isDark)
+      })
   },
   methods: {
     getList(list) {
@@ -80,21 +93,17 @@ export default {
       const isMoveUp = oldListIndex > newListIndex;
 
       // Insert the item into the new list at the correct index
-      this.items.splice(isMoveUp ? newListIndex : newListIndex + 1, 0, { ...draggedItem, list: newList });
+      this.items.splice(
+        isMoveUp ? newListIndex : newListIndex + 1,
+        0,
+        { ...draggedItem, list: newList }
+      );
     },
-  },
+  }
 };
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 
 .drop-zone {
   width: 50%;
@@ -105,9 +114,18 @@ export default {
   padding: 10px;
 }
 
+.dark .drop-zone {
+  background-color: #333; /* Change the background color of drop-zone in dark mode */
+}
+
 .drag-el {
   background-color: #fff;
   margin-bottom: 10px;
   padding: 5px;
+}
+
+.dark .drag-el {
+  background-color: #444; /* Change the background color of drag-el in dark mode */
+  color: #fff; /* Change the text color of drag-el in dark mode */
 }
 </style>
