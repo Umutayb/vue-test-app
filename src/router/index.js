@@ -8,6 +8,7 @@ import WidgetsPage from "@/views/categories/WidgetsPage.vue";
 import InteractionsPage from "@/views/categories/InteractionsPage.vue";
 import SortablePage from "@/views/tools/SortablePage.vue";
 import DropdownPage from "@/views/tools/DropDownPage.vue";
+import ScrollablePage from "@/views/tools/ScrollablePage.vue";
 
 const routes = [
   {
@@ -27,6 +28,7 @@ const routes = [
   { path: "/resizable", name: "resizable", component: InteractionsPage },
   { path: "/droppable", name: "droppable", component: InteractionsPage },
   { path: "/draggable", name: "draggable", component: InteractionsPage },
+  { path: "/scrollable", name: "scrollable", component: ScrollablePage },
 ];
 
 const router = createRouter({
