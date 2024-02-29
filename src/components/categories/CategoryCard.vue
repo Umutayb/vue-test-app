@@ -32,7 +32,7 @@
   display: block;
   text-decoration: none;
   color: inherit;
-  border: 1px solid #ccc;
+  border: 1px solid  #4e6172;
   padding: 20px;
   cursor: pointer;
   margin: 10px;

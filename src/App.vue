@@ -70,4 +70,8 @@ h2 {
     color: #384b5d; /* Change the color on hover */
   }
 }
+
+.bold-title{
+  font-weight: bold;
+}
 </style>
