@@ -1,8 +1,11 @@
 <template>
     <div>
       <h2>Tall Page</h2>
-      <a>Long page which can be scrolling</a>
-      <div id="image">
+      <a>Long page which can be scrolled</a>
+      <div id="image1">
+        <img :src="image"/>
+      </div>
+      <div id="image2">
         <img :src="image"/>
       </div>
       <div id="logo">
