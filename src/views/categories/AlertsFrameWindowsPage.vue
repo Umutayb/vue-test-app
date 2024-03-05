@@ -40,16 +40,16 @@ export default {
     },
     newTab() {
       // Open a new tab
-      window.open("http://127.0.0.1:8081/", "_blank");
+      window.open("http://127.0.0.1:8080/", "_blank");
     },
     newWindow() {
       // Open a new window
-      window.open("http://127.0.0.1:8081/", "_blank", "width=600,height=400");
+      window.open("http://127.0.0.1:8080/", "_blank", "width=600,height=400");
     },
     newWindowMessage() {
       // Open a new window with a message
       alert('New window message!');
-      window.open("http://127.0.0.1:8081/", "_blank");
+      window.open("http://127.0.0.1:8080/", "_blank");
     }
   }
 }
