@@ -5,16 +5,16 @@
       <form>
         <div class="radio-group">
           <span class="radio-button">
-            <input type="radio" id="yes" name="like" value="yes" @change="handleRadioChange">
-            <label for="yes">Yes</label>
+            <input type="radio" name="like" value="yes" @change="handleRadioChange">
+            <label for="yes"><span>Yes</span></label>
           </span>
           <span class="radio-button">
             <input type="radio" id="impressive" name="like" value="impressive" @change="handleRadioChange">
-            <label for="impressive">Impressive</label>
+            <label for="impressive"><span>Impressive</span></label>
           </span>
           <span class="radio-button">
             <input type="radio" id="no" name="like" value="no" disabled>
-            <label for="no">No</label>
+            <label for="no"><span>No</span></label>
           </span>
         </div>
         <p v-if="thanks">Thanks!</p>
@@ -65,7 +65,7 @@ export default {
   padding: 10px;
   margin-top: 20px;
   margin-bottom: 20px;
-  width: 300px; /* Adjust width */
+  width: 100px; /* Adjust width */
   justify-content: center;
   width: 100%;
 }
@@ -78,19 +78,49 @@ h2 {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
+  flex-wrap: nowrap; /* Ensure items do not wrap */
 }
 
 .radio-button {
   display: flex; /* Use flexbox */
   align-items: center; /* Align items vertically */
-  margin-right: 56px; /* Adjust margin as needed */
+  margin-right: 80px; /* Adjust margin as needed */
+  flex-shrink: 0; /* Prevent items from shrinking */
+}
+
+.radio-button.label-impressive label {
+  margin-right: -10px; /* Move Impressive label to the left in Safari */
 }
 
 .radio-button label {
-  margin-left: 5px; /* Add margin between radio button and label */
+  white-space: nowrap; /* Prevent wrapping of label text */
+  display: flex; /* Use flexbox */
+  align-items: center; /* Align items vertically */
 }
 
 input[type="radio"] {
   transform: scale(1);
+  margin-right: 5px; /* Adjust spacing between the button and label */
+  
 }
+
+.radio-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+  gap: 12px; /* Adjust the gap between items */
+}
+
+.radio-button {
+  display: flex;
+  align-items: center;
+}
+
+.radio-button input[type="radio"] {
+  margin-right: 5px;
+}
+
+.radio-button:last-child {
+  margin-right: 70px; /* Adjust margin for the "No" option */
+}
+
 </style>
