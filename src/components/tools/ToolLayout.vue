@@ -18,17 +18,11 @@
     components: {
       ToolButton,
     },
-    data() {
-      return {
-        tools: [
-          { name: "Sortable", routeName: "sortable" },
-          { name: "Dropdown", routeName: "dropDown" },
-          { name: "Resizable", routeName: "resizable" },
-          { name: "Droppable", routeName: "droppable" },
-          { name: "Draggable", routeName: "draggable" },
-          { name: "Tall Page", routeName: "tall" },
-        ],
-      };
+    props: {
+      tools: {
+        type: Array,
+        default: () => [],
+      },
     },
   };
   </script>
