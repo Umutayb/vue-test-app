@@ -66,7 +66,6 @@ export default {
   created (){
       this.emitter.on('isDark', (evt) => {
         this.isDark = evt.isDark;
-        console.log(this.isDark)
       })
   },
   methods: {

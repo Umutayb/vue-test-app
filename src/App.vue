@@ -20,7 +20,6 @@ export default {
     returnHome() {
       // Use $router.push to navigate programmatically
       this.$router.push('/');
-      this.emitter.emit('isDark', { isDark: this.isDark });
     },
     toggleDark() {
       this.isDark = !this.isDark;
@@ -36,10 +35,7 @@ export default {
 
     // Optionally, you can set the dark mode on component mount
     onMounted(() => {
-      this.emitter.on('isDark', (evt) => {
-      this.isDark = evt.isDark;
-      console.log(this.isDark);
-    })
+      document.documentElement.classList.toggle('dark', true);
     });
 
     return {
@@ -78,7 +74,8 @@ h2 {
   }
 }
 
-.bold-title{
+.white-title {
   font-weight: bold;
+  color: #fff;
 }
 </style>

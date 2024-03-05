@@ -13,7 +13,6 @@ import ToolLayout from "@/components/tools/ToolLayout.vue";
 export default {
   components: {
     ToolLayout
-  },
- 
+  }
 }
 </script>
