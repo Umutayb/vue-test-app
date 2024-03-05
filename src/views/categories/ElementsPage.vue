@@ -67,7 +67,6 @@ export default {
 <style>
 /* Radio buttons section styles */
 .question-box {
-  border: 1px solid black;
   padding: 10px;
   margin-top: 20px;
   margin-bottom: 20px;

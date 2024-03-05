@@ -4,7 +4,7 @@
     <a>Welcome to Alerts, Frame & Windows!</a>
 
     <div class="clickables">
-      <h4>Alerts</h4>
+      <h3>Alerts</h3>
       <div class="button-group">
         <button class="button" id="click-me" @click="handleClick">Click Me</button>
         <button class="button" id="right-click-me" @contextmenu.prevent="handleRightClick">Right Click Me</button>
@@ -13,7 +13,7 @@
     </div>
 
     <div id="tabs" class="clickables">
-      <h4>Windows</h4>
+      <h3>Windows & Tabs</h3>
       <div class="button-group">
         <button class="button" @click="newTab">New Tab</button>
         <button class="button" @click="newWindow">New Window</button>
@@ -40,16 +40,16 @@ export default {
     },
     newTab() {
       // Open a new tab
-      window.open("https://example.com", "_blank");
+      window.open("http://127.0.0.1:8081/", "_blank");
     },
     newWindow() {
       // Open a new window
-      window.open("https://example.com", "_blank", "width=600,height=400");
+      window.open("http://127.0.0.1:8081/", "_blank", "width=600,height=400");
     },
     newWindowMessage() {
       // Open a new window with a message
       alert('New window message!');
-      window.open("https://example.com", "_blank");
+      window.open("http://127.0.0.1:8081/", "_blank");
     }
   }
 }
@@ -58,10 +58,10 @@ export default {
 <style>
 /* Clickables section styles */
 .clickables {
-  border: 1px solid black; /* Increase border width */
   display: flex;
+  flex-direction: column; /* Align items in a column */
   justify-content: center;
-  align-items: center; /* Center align items vertically */
+  align-items: center; /* Center align items horizontally */
   width: 100%;
   margin-top: 20px;
   padding: 10px;
