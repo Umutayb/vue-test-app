@@ -75,10 +75,12 @@ h2 {
 }
 
 .radio-group {
-  display: flex;
+  display: grid;
   align-items: center;
   margin-bottom: 10px;
   flex-wrap: nowrap; /* Ensure items do not wrap */
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+  gap: 15px; /* Adjust the gap between items */
 }
 
 .radio-button {
@@ -104,17 +106,6 @@ input[type="radio"] {
   
 }
 
-.radio-group {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
-  gap: 12px; /* Adjust the gap between items */
-}
-
-.radio-button {
-  display: flex;
-  align-items: center;
-}
-
 .radio-button input[type="radio"] {
   margin-right: 5px;
 }
@@ -122,5 +113,4 @@ input[type="radio"] {
 .radio-button:last-child {
   margin-right: 70px; /* Adjust margin for the "No" option */
 }
-
 </style>
