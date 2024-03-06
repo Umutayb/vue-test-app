@@ -9,7 +9,7 @@ import InteractionsPage from "@/views/categories/InteractionsPage.vue";
 import SortablePage from "@/views/tools/SortablePage.vue";
 import DropdownPage from "@/views/tools/DropDownPage.vue";
 import TallPage from "@/views/tools/TallPage.vue";
-import QuestionsPage from "@/views/tools/QuestionsPage.vue";
+import RadioButtonsPage from "@/views/tools/RadioButtonsPage.vue";
 
 const routes = [
   {
@@ -30,7 +30,7 @@ const routes = [
   { path: "/droppable", name: "droppable", component: InteractionsPage },
   { path: "/draggable", name: "draggable", component: InteractionsPage },
   { path: "/tall", name: "tall", component: TallPage },
-  { path: "/questions", name: "questions", component: QuestionsPage }
+  { path: "/radiobuttons", name: "radiobuttons", component: RadioButtonsPage }
 ];
 
 const router = createRouter({

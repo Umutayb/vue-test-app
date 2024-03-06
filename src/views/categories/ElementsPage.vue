@@ -17,7 +17,7 @@ export default {
   data() {
       return {
         tools: [
-          { name: "Questions", routeName: "questions" }
+          { name: "Radio Buttons", routeName: "radiobuttons" }
         ],
       };
     }
