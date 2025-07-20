@@ -20,13 +20,29 @@
         <button class="button" @click="newWindowMessage">New Window Message</button>
       </div>
     </div>
+
+
+    <div id="lameframe" class="best-frame-ever">
+     <h3>iFrame</h3>
+        <ToolLayout :tools="tools"></ToolLayout>
+    </div>
+      
   </div>
 </template>
 
 <script>
+import ToolLayout from "@/components/tools/ToolLayout.vue";
+
 export default {
+   components: {
+    ToolLayout
+  },
   data() {
-    return {};
+    return {
+      tools: [
+          { name: "LameFrame", routeName: "lameframe" }
+        ]
+    };
   },
   methods: {
     handleDoubleClick() {
