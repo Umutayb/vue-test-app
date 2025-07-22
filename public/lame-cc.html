@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Lame Credit Card</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+      background-color: #f7f7f7;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 300px;
+    }
+
+    input {
+      padding: 8px;
+      font-size: 1rem;
+    }
+
+    input.invalid {
+      border: 1px solid red;
+    }
+
+    button {
+      padding: 10px;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .submitted {
+      margin-top: 10px;
+      color: green;
+    }
+
+    .error {
+      margin-top: 10px;
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h3>Payment Form</h3>
+  <form id="cardForm">
+    <input type="text" id="cardNumber" placeholder="Card Number (xxxx xxxx xxxx xxxx)" required />
+    <input type="text" id="expiry" placeholder="MM/YY" required />
+    <input type="text" id="cvc" placeholder="CVC" required />
+    <button type="submit" id="submit">Submit Payment</button>
+  </form>
+
+  <div id="submittedMsg" class="submitted" style="display: none;">
+    ✅ Fake payment submitted!
+  </div>
+  <div id="errorMsg" class="error" style="display: none;">
+    ❌ Invalid credit card information. Please check your inputs.
+  </div>
+
+  <script>
+    function validateCardNumber(number) {
+      return /^4\d{3} \d{4} \d{4} \d{4}$/.test(number.trim()); // Visa-style
+    }
+
+    function validateExpiry(expiry) {
+      return /^(0[1-9]|1[0-2])\/\d{2}$/.test(expiry.trim());
+    }
+
+    function validateCVC(cvc) {
+      return /^\d{3}$/.test(cvc.trim());
+    }
+
+    const cardForm = document.getElementById("cardForm");
+    const cardNumber = document.getElementById("cardNumber");
+    const expiry = document.getElementById("expiry");
+    const cvc = document.getElementById("cvc");
+    const submittedMsg = document.getElementById("submittedMsg");
+    const errorMsg = document.getElementById("errorMsg");
+
+    cardForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      let valid = true;
+
+      // Reset styles and messages
+      submittedMsg.style.display = "none";
+      errorMsg.style.display = "none";
+
+      // Validate fields
+      if (!validateCardNumber(cardNumber.value)) {
+        cardNumber.classList.add("invalid");
+        valid = false;
+      } else {
+        cardNumber.classList.remove("invalid");
+      }
+
+      if (!validateExpiry(expiry.value)) {
+        expiry.classList.add("invalid");
+        valid = false;
+      } else {
+        expiry.classList.remove("invalid");
+      }
+
+      if (!validateCVC(cvc.value)) {
+        cvc.classList.add("invalid");
+        valid = false;
+      } else {
+        cvc.classList.remove("invalid");
+      }
+
+      // Show message
+      if (valid) {
+        submittedMsg.style.display = "block";
+        errorMsg.style.display = "none";
+      } else {
+        errorMsg.style.display = "block";
+      }
+    });
+  </script>
+</body>
+</html>

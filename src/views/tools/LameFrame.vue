@@ -5,7 +5,7 @@
       src="/inner-page.html"
       id="lameframe-test-id"
       width="100%"
-      height="500"
+      height="700"
       style="border: 1px solid #aaa;"
       title="Lameframe Iframe"
     ></iframe>
