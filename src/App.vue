@@ -7,39 +7,64 @@
       Toggle Color Mode
     </button>
 
+    <!-- Only show this if route is /lameframe -->
+    <div
+      v-if="showInnerDarkStatus"
+      id="data-inner-dark"
+      style="margin-top: 20px;"
+      :style="{ color: innerDark ? '#90ee90' : '#ff6666', fontWeight: 'bold' }"
+    >
+      Inner Dark Mode: {{ innerDark ? 'ON' : 'OFF' }}
+    </div>
+
     <router-view />
   </div>
 </template>
 
 <script>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, computed } from 'vue';
+import { useRoute } from 'vue-router';
 import { useDark } from '@vueuse/core';
 
 export default {
-  methods: {
-    returnHome() {
-      // Use $router.push to navigate programmatically
-      this.$router.push('/');
-    },
-    toggleDark() {
-      this.isDark = !this.isDark;
-      // Optionally, you can use a library function to set the dark mode (if supported)
-      document.documentElement.classList.toggle('dark', this.isDark);
-      // Emit a custom event when dark mode is toggled
-      this.emitter.emit('isDark', { isDark: this.isDark });
-    },
-  },
   setup() {
-    // Use ref to make isDark reactive
     const isDark = ref(useDark());
+    const innerDark = ref(false); // status from iframe
+    const route = useRoute();     // current route
 
-    // Optionally, you can set the dark mode on component mount
+    // Only show the indicator on /lameframe route
+    const showInnerDarkStatus = computed(() => route.name === 'lameframe');
+
     onMounted(() => {
-      document.documentElement.classList.toggle('dark', true);
+      // Set main dark mode class
+      document.documentElement.classList.toggle('dark', isDark.value);
+
+      // Listen for postMessage from iframe
+      window.addEventListener('message', (event) => {
+        // Optional origin check here
+        const data = event.data;
+        if (data?.type === 'inner-dark-mode-toggle') {
+          innerDark.value = !!data.isDark;
+          console.log('📥 Received inner dark mode:', innerDark.value);
+        }
+      });
     });
+
+    const toggleDark = () => {
+      isDark.value = !isDark.value;
+      document.documentElement.classList.toggle('dark', isDark.value);
+    };
+
+    const returnHome = () => {
+      window.location.href = '/';
+    };
 
     return {
       isDark,
+      innerDark,
+      showInnerDarkStatus,
+      toggleDark,
+      returnHome,
     };
   },
 };
@@ -54,28 +79,19 @@ export default {
 }
 
 .dark #app {
-  color: #41566a; /* Change the text color in dark mode */
+  color: #cfd8dc;
+}
+
+.dark {
+  background-color: #1a1a1a;
 }
 
 h2 {
   margin-bottom: 10px;
 }
 
-/* Optionally, you can define dark mode styles using a class */
-.dark {
-  background-color: #1a1a1a;
-}
-
-.clickable-title {
-  /* Change styles on hover */
-  &:hover {
-    cursor: pointer;
-    color: #2b3f51; /* Change the color on hover */
-  }
-}
-
-.white-title {
-  font-weight: bold;
-  color: #fff;
+.clickable-title:hover {
+  cursor: pointer;
+  color: #2b3f51;
 }
 </style>
