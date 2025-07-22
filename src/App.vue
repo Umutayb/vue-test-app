@@ -7,6 +7,9 @@
       Toggle Color Mode
     </button>
 
+    <!-- 👇 Display iframe status -->
+    <div id="data-inner-dark" style="margin-top: 20px;"></div>
+
     <router-view />
   </div>
 </template>
@@ -18,24 +21,35 @@ import { useDark } from '@vueuse/core';
 export default {
   methods: {
     returnHome() {
-      // Use $router.push to navigate programmatically
       this.$router.push('/');
     },
     toggleDark() {
       this.isDark = !this.isDark;
-      // Optionally, you can use a library function to set the dark mode (if supported)
       document.documentElement.classList.toggle('dark', this.isDark);
-      // Emit a custom event when dark mode is toggled
-      this.emitter.emit('isDark', { isDark: this.isDark });
+      this.emitter?.emit?.('isDark', { isDark: this.isDark });
     },
   },
   setup() {
-    // Use ref to make isDark reactive
     const isDark = ref(useDark());
 
-    // Optionally, you can set the dark mode on component mount
     onMounted(() => {
-      document.documentElement.classList.toggle('dark', true);
+      // Set initial dark mode state on <html>
+      document.documentElement.classList.toggle('dark', isDark.value);
+
+      // Listen for messages from iframe
+      window.addEventListener('message', (event) => {
+      console.log("📥 Parent received postMessage:", event);
+
+        const data = event.data;
+        if (data?.type === 'inner-dark-mode-toggle') {
+          const statusEl = document.getElementById('data-inner-dark');
+          if (statusEl) {
+            statusEl.innerText = data.isDark ? 'Inner Dark Mode: ON' : 'Inner Dark Mode: OFF';
+            statusEl.style.color = data.isDark ? '#90ee90' : '#ff6666';
+            statusEl.style.fontWeight = 'bold';
+          }
+        }
+      });
     });
 
     return {
@@ -54,24 +68,20 @@ export default {
 }
 
 .dark #app {
-  color: #41566a; /* Change the text color in dark mode */
+  color: #cfd8dc;
+}
+
+.dark {
+  background-color: #1a1a1a;
 }
 
 h2 {
   margin-bottom: 10px;
 }
 
-/* Optionally, you can define dark mode styles using a class */
-.dark {
-  background-color: #1a1a1a;
-}
-
-.clickable-title {
-  /* Change styles on hover */
-  &:hover {
-    cursor: pointer;
-    color: #2b3f51; /* Change the color on hover */
-  }
+.clickable-title:hover {
+  cursor: pointer;
+  color: #2b3f51;
 }
 
 .white-title {

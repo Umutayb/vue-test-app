@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>LameFrame Page</h3>
+    <h3>LameFrame Page</h3><div class="data-inner-dark" id="data-inner-dark"></div>
     <iframe
       src="/inner-page.html"
       id="lameframe-test-id"

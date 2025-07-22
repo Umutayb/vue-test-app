@@ -50,34 +50,60 @@
   </div>
 
   <script>
-    // Load saved text from localStorage
-    const savedText = localStorage.getItem("iframeSavedText");
-    if (savedText) {
-      document.getElementById("savedDisplay").innerText = "Saved: " + savedText;
+
+  function updateParentStatus(isDark) {
+    window.parent.postMessage(
+     {
+       type: 'inner-dark-mode-toggle',
+       isDark: isDark,
+      },'*');
+  }
+  console.log("📤 Sent message to parent");
+  // Load saved text from localStorage
+  const savedText = localStorage.getItem("iframeSavedText");
+  if (savedText) {
+    document.getElementById("savedDisplay").innerText = "Saved: " + savedText;
+  }
+
+  function saveText() {
+    const text = document.getElementById("userInput").value;
+    localStorage.setItem("iframeSavedText", text);
+    document.getElementById("savedDisplay").innerText = text;
+  }
+
+  const toggleBtn = document.getElementById("toggle-inner-dark");
+  toggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    toggleBtn.classList.toggle("dark-mode");
+
+    const isDark = document.body.classList.contains("dark-mode");
+    localStorage.setItem("iframeDarkMode", isDark);
+    
+    updateParentStatus(isDark);
+    
+  });
+
+  // Load dark mode state from localStorage on load
+  const darkModeStored = localStorage.getItem("iframeDarkMode") === "true";
+  if (darkModeStored) {
+    document.body.classList.add("dark-mode");
+    toggleBtn.classList.add("dark-mode");
+    updateParentStatus(true);
+
+    // reflect on parent div
+    try {
+      const parentDoc = window.parent.document;
+      const div = parentDoc.getElementById("data-inner-dark");
+      if (div) {
+        div.innerText = "Inner Dark Mode: ON";
+        div.style.color = "#90ee90";
+        div.style.fontWeight = "bold";
+      }
+    } catch (err) {
+      console.warn("Failed to update parent div:", err);
     }
+  }
+</script>
 
-    function saveText() {
-      const text = document.getElementById("userInput").value;
-      localStorage.setItem("iframeSavedText", text);
-      document.getElementById("savedDisplay").innerText = text;
-    }
-
-    // Dark mode toggle logic (specific to iframe page)
-    const toggleBtn = document.getElementById("toggle-inner-dark");
-    toggleBtn.addEventListener("click", () => {
-      document.body.classList.toggle("dark-mode");
-      document.getElementById("toggle-inner-dark").classList.toggle("dark-mode");
-
-      // Optional: persist mode
-      const isDark = document.body.classList.contains("dark-mode");
-      localStorage.setItem("iframeDarkMode", isDark);
-    });
-
-    // Load dark mode state from localStorage on load
-    const darkModeStored = localStorage.getItem("iframeDarkMode") === "true";
-    if (darkModeStored) {
-      document.body.classList.add("dark-mode");
-    }
-  </script>
 </body>
 </html>
