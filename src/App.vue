@@ -7,53 +7,64 @@
       Toggle Color Mode
     </button>
 
-    <!-- 👇 Display iframe status -->
-    <div id="data-inner-dark" style="margin-top: 20px;"></div>
+    <!-- Only show this if route is /lameframe -->
+    <div
+      v-if="showInnerDarkStatus"
+      id="data-inner-dark"
+      style="margin-top: 20px;"
+      :style="{ color: innerDark ? '#90ee90' : '#ff6666', fontWeight: 'bold' }"
+    >
+      Inner Dark Mode: {{ innerDark ? 'ON' : 'OFF' }}
+    </div>
 
     <router-view />
   </div>
 </template>
 
 <script>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, computed } from 'vue';
+import { useRoute } from 'vue-router';
 import { useDark } from '@vueuse/core';
 
 export default {
-  methods: {
-    returnHome() {
-      this.$router.push('/');
-    },
-    toggleDark() {
-      this.isDark = !this.isDark;
-      document.documentElement.classList.toggle('dark', this.isDark);
-      this.emitter?.emit?.('isDark', { isDark: this.isDark });
-    },
-  },
   setup() {
     const isDark = ref(useDark());
+    const innerDark = ref(false); // status from iframe
+    const route = useRoute();     // current route
+
+    // Only show the indicator on /lameframe route
+    const showInnerDarkStatus = computed(() => route.name === 'lameframe');
 
     onMounted(() => {
-      // Set initial dark mode state on <html>
+      // Set main dark mode class
       document.documentElement.classList.toggle('dark', isDark.value);
 
-      // Listen for messages from iframe
+      // Listen for postMessage from iframe
       window.addEventListener('message', (event) => {
-      console.log("📥 Parent received postMessage:", event);
-
+        // Optional origin check here
         const data = event.data;
         if (data?.type === 'inner-dark-mode-toggle') {
-          const statusEl = document.getElementById('data-inner-dark');
-          if (statusEl) {
-            statusEl.innerText = data.isDark ? 'Inner Dark Mode: ON' : 'Inner Dark Mode: OFF';
-            statusEl.style.color = data.isDark ? '#90ee90' : '#ff6666';
-            statusEl.style.fontWeight = 'bold';
-          }
+          innerDark.value = !!data.isDark;
+          console.log('📥 Received inner dark mode:', innerDark.value);
         }
       });
     });
 
+    const toggleDark = () => {
+      isDark.value = !isDark.value;
+      document.documentElement.classList.toggle('dark', isDark.value);
+    };
+
+    const returnHome = () => {
+      window.location.href = '/';
+    };
+
     return {
       isDark,
+      innerDark,
+      showInnerDarkStatus,
+      toggleDark,
+      returnHome,
     };
   },
 };
@@ -82,10 +93,5 @@ h2 {
 .clickable-title:hover {
   cursor: pointer;
   color: #2b3f51;
-}
-
-.white-title {
-  font-weight: bold;
-  color: #fff;
 }
 </style>
