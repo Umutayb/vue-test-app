@@ -24,12 +24,8 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: umutayb/vue-test-site
-          # This generates tags based on:
-          # 1. The Git tag (e.g., v1.0.2)
-          # 2. 'latest' (only if it's the default branch)
           tags: |
             type=semver,pattern={{version}}
-            type=semver,pattern={{major}}.{{minor}}
             type=raw,value=latest,enable={{is_default_branch}}
 
       - name: Build and push Docker image
