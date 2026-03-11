@@ -36,7 +36,6 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # This matches the 'dist' folder in your Docker CMD
           path: './dist'
 
       - name: Deploy to GitHub Pages
