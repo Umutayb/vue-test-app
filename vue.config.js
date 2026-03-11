@@ -2,8 +2,8 @@ const { defineConfig } = require('@vue/cli-service')
 const webpack = require('webpack');
 
 module.exports = defineConfig({
-  // This ensures assets are loaded from /vue-test-app/ instead of the root
-  publicPath: process.env.NODE_ENV === 'production'
+
+  publicPath: process.env.NODE_ENV === 'production' && process.env.GITHUB_ACTIONS
     ? '/vue-test-app/'
     : '/',
     
