@@ -1,6 +1,6 @@
 <template>
   <div class="home-page">
-    <h1>Pickleib Test Suite</h1>
+    <h1>UI Components Test Suite</h1>
     <p class="page-description">UI test automation target application</p>
 
     <div class="stats">

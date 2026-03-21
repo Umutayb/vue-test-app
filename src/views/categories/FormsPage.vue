@@ -1,9 +1,6 @@
 <template>
   <div>
-    <!-- Your content for the Forms category page -->
     <h1 id="title">Full Form</h1>
-    <a>Wellcome to Forms Page!</a>
-    <h2>Full Form</h2>
     <form @submit.prevent="submitForm">
       <label for="name">Name:</label><br>
       <input type="text" id="name" name="name" placeholder="John Smith" v-model="formData.name"><br>

@@ -3,7 +3,7 @@
     <!-- Logo -->
     <div class="sidebar-header">
       <div class="sidebar-logo"></div>
-      <span class="sidebar-title">Pickleib</span>
+      <span class="sidebar-title">UI Components</span>
       <span class="sidebar-version">v0.1</span>
     </div>
 
