@@ -4,18 +4,18 @@
       <h2>Do you like the site?</h2>
       <form>
         <div class="radio-group">
-          <span class="radio-button">
-            <input type="radio" name="like" value="yes" @change="handleRadioChange">
-            <label for="yes"><span>Yes</span></label>
-          </span>
-          <span class="radio-button">
-            <input type="radio" id="impressive" name="like" value="impressive" @change="handleRadioChange">
-            <label for="impressive"><span>Impressive</span></label>
-          </span>
-          <span class="radio-button">
-            <input type="radio" id="no" name="like" value="no" disabled>
-            <label for="no"><span>No</span></label>
-          </span>
+          <label class="radio-label">
+            <input type="radio" name="like" id="yes" value="yes" @change="handleRadioChange" />
+            <span>Yes</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="like" id="impressive" value="impressive" @change="handleRadioChange" />
+            <span>Impressive</span>
+          </label>
+          <label class="radio-label radio-label--disabled">
+            <input type="radio" name="like" id="no" value="no" disabled />
+            <span>No</span>
+          </label>
         </div>
         <p v-if="thanks">Thanks!</p>
         <p v-if="wow">Isn't it!</p>
@@ -68,28 +68,36 @@ export default {
 }
 
 .radio-group {
-  display: grid;
-  align-items: center;
-  margin-bottom: 0.625rem;
-  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
+  margin-bottom: 0.75rem;
 }
 
-.radio-button {
+.radio-label {
   display: flex;
   align-items: center;
-}
-
-.radio-button label {
-  white-space: nowrap;
-  display: flex;
-  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
   color: var(--text-primary);
+  font-size: 0.95rem;
+}
+
+.radio-label--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 input[type="radio"] {
-  transform: scale(1);
-  margin-right: 0.3125rem;
+  margin: 0;
   accent-color: var(--accent);
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.radio-label--disabled input[type="radio"] {
+  cursor: not-allowed;
 }
 </style>
