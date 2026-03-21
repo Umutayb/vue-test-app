@@ -21,6 +21,7 @@ import ModalPage from "@/views/tools/ModalPage.vue";
 import ToastPage from "@/views/tools/ToastPage.vue";
 import TooltipPage from "@/views/tools/TooltipPage.vue";
 import DrawerPage from "@/views/tools/DrawerPage.vue";
+import KanbanPage from "@/views/tools/KanbanPage.vue";
 
 const componentMap = {
   radiobuttons: RadioButtonsPage,
@@ -46,6 +47,7 @@ const componentMap = {
   toast: ToastPage,
   tooltip: TooltipPage,
   drawer: DrawerPage,
+  kanban: KanbanPage,
 };
 
 const descriptionMap = {
