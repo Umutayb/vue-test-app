@@ -89,7 +89,7 @@ export const navigation = [
   {
     category: "Forms",
     items: [
-      { label: "Student Registration", routeName: "forms", path: "/forms" },
+      { label: "Full Form", routeName: "forms", path: "/forms" },
       { label: "Dropdown", routeName: "dropDown", path: "/dropdown" },
     ]
   },
