@@ -2,7 +2,6 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomePage from "@/views/HomePage.vue";
 import FormsPage from "@/views/categories/FormsPage.vue";
 import AlertsFrameWindowsPage from "@/views/categories/AlertsFrameWindowsPage.vue";
-import InteractionsPage from "@/views/categories/InteractionsPage.vue";
 import SortablePage from "@/views/tools/SortablePage.vue";
 import DropdownPage from "@/views/tools/DropDownPage.vue";
 import TallPage from "@/views/tools/TallPage.vue";
@@ -29,6 +28,7 @@ import DynamicFormPage from "@/views/tools/DynamicFormPage.vue";
 import SliderIndicatorPage from "@/views/tools/SliderIndicatorPage.vue";
 import DraggablePage from "@/views/tools/DraggablePage.vue";
 import DroppablePage from "@/views/tools/DroppablePage.vue";
+import ResizablePage from "@/views/tools/ResizablePage.vue";
 
 const componentMap = {
   radiobuttons: RadioButtonsPage,
@@ -39,7 +39,7 @@ const componentMap = {
   sortable: SortablePage,
   draggable: DraggablePage,
   droppable: DroppablePage,
-  resizable: InteractionsPage,
+  resizable: ResizablePage,
   tall: TallPage,
   textInputs: TextInputsPage,
   checkboxes: CheckboxesPage,
