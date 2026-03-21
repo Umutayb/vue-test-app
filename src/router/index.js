@@ -13,6 +13,7 @@ import CheckboxesPage from "@/views/tools/CheckboxesPage.vue";
 import SlidersPage from "@/views/tools/SlidersPage.vue";
 import FileUploadPage from "@/views/tools/FileUploadPage.vue";
 import AutocompletePage from "@/views/tools/AutocompletePage.vue";
+import TabsPage from "@/views/tools/TabsPage.vue";
 
 const componentMap = {
   radiobuttons: RadioButtonsPage,
@@ -30,6 +31,7 @@ const componentMap = {
   sliders: SlidersPage,
   fileUpload: FileUploadPage,
   autocomplete: AutocompletePage,
+  tabs: TabsPage,
 };
 
 const descriptionMap = {
@@ -48,6 +50,7 @@ const descriptionMap = {
   sliders: "Range sliders — single, dual-handle, and stepped",
   fileUpload: "Single, multiple, and drag-and-drop file inputs",
   autocomplete: "Input with filtered dropdown suggestions and keyboard navigation",
+  tabs: "Tab navigation with switchable content panels",
 };
 
 // Import navigation config for meta lookup
