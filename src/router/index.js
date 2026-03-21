@@ -9,6 +9,7 @@ import TallPage from "@/views/tools/TallPage.vue";
 import RadioButtonsPage from "@/views/tools/RadioButtonsPage.vue";
 import ButtonsPage from "@/views/tools/ButtonsPage.vue";
 import TextInputsPage from "@/views/tools/TextInputsPage.vue";
+import CheckboxesPage from "@/views/tools/CheckboxesPage.vue";
 
 const componentMap = {
   radiobuttons: RadioButtonsPage,
@@ -22,6 +23,7 @@ const componentMap = {
   resizable: InteractionsPage,
   tall: TallPage,
   textInputs: TextInputsPage,
+  checkboxes: CheckboxesPage,
 };
 
 const descriptionMap = {
@@ -36,6 +38,7 @@ const descriptionMap = {
   resizable: "Resizable interaction components",
   tall: "Long scrollable page for scroll testing",
   textInputs: "Text, password, email, number, and textarea inputs with states",
+  checkboxes: "Checkbox and toggle switch states",
 };
 
 // Import navigation config for meta lookup
