@@ -19,6 +19,7 @@ import ProgressPage from "@/views/tools/ProgressPage.vue";
 import TablePage from "@/views/tools/TablePage.vue";
 import ModalPage from "@/views/tools/ModalPage.vue";
 import ToastPage from "@/views/tools/ToastPage.vue";
+import TooltipPage from "@/views/tools/TooltipPage.vue";
 
 const componentMap = {
   radiobuttons: RadioButtonsPage,
@@ -42,6 +43,7 @@ const componentMap = {
   table: TablePage,
   modal: ModalPage,
   toast: ToastPage,
+  tooltip: TooltipPage,
 };
 
 const descriptionMap = {
