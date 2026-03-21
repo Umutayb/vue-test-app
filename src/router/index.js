@@ -2,7 +2,6 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomePage from "@/views/HomePage.vue";
 import FormsPage from "@/views/categories/FormsPage.vue";
 import AlertsFrameWindowsPage from "@/views/categories/AlertsFrameWindowsPage.vue";
-import WidgetsPage from "@/views/categories/WidgetsPage.vue";
 import InteractionsPage from "@/views/categories/InteractionsPage.vue";
 import SortablePage from "@/views/tools/SortablePage.vue";
 import DropdownPage from "@/views/tools/DropDownPage.vue";
@@ -14,7 +13,6 @@ const componentMap = {
   forms: FormsPage,
   dropDown: DropdownPage,
   alerts: AlertsFrameWindowsPage,
-  widgets: WidgetsPage,
   sortable: SortablePage,
   draggable: InteractionsPage,
   droppable: InteractionsPage,
@@ -27,7 +25,6 @@ const descriptionMap = {
   forms: "A multi-field form with validation and submission modal",
   dropDown: "Country selector dropdown with search",
   alerts: "Click handlers, alerts, and window management",
-  widgets: "Widget components — more coming in Phase 2",
   sortable: "Drag-and-drop sortable lists",
   draggable: "Draggable interaction components",
   droppable: "Droppable interaction components",
@@ -66,6 +63,7 @@ const routes = [
   // Redirects for old category-level routes
   { path: "/elements", redirect: "/radiobuttons" },
   { path: "/interactions", redirect: "/sortable" },
+  { path: "/widgets", redirect: "/tabs" },
   ...pageRoutes,
 ];
 

@@ -2,14 +2,20 @@ export const navigation = [
   {
     category: "Elements",
     items: [
-      { label: "Radio Buttons", routeName: "radiobuttons", path: "/radiobuttons" },
+      { label: "Radio Buttons",       routeName: "radiobuttons", path: "/radiobuttons" },
+      { label: "Buttons",             routeName: "buttons",      path: "/buttons" },
+      { label: "Text Inputs",         routeName: "textInputs",   path: "/text-inputs" },
+      { label: "Checkboxes & Toggles", routeName: "checkboxes",  path: "/checkboxes" },
+      { label: "Sliders",             routeName: "sliders",      path: "/sliders" },
     ]
   },
   {
     category: "Forms",
     items: [
-      { label: "Full Form", routeName: "forms", path: "/forms" },
-      { label: "Dropdown", routeName: "dropDown", path: "/dropdown" },
+      { label: "Full Form",    routeName: "forms",        path: "/forms" },
+      { label: "Dropdown",     routeName: "dropDown",     path: "/dropdown" },
+      { label: "File Upload",  routeName: "fileUpload",   path: "/file-upload" },
+      { label: "Autocomplete", routeName: "autocomplete", path: "/autocomplete" },
     ]
   },
   {
@@ -21,17 +27,20 @@ export const navigation = [
   {
     category: "Widgets",
     items: [
-      { label: "Widgets", routeName: "widgets", path: "/widgets" },
+      { label: "Tabs",      routeName: "tabs",      path: "/tabs" },
+      { label: "Accordion", routeName: "accordion", path: "/accordion" },
+      { label: "Progress",  routeName: "progress",  path: "/progress" },
+      { label: "Table",     routeName: "table",     path: "/table" },
     ]
   },
   {
     category: "Interactions",
     items: [
-      { label: "Sortable", routeName: "sortable", path: "/sortable" },
+      { label: "Sortable",  routeName: "sortable",  path: "/sortable" },
       { label: "Draggable", routeName: "draggable", path: "/draggable" },
       { label: "Droppable", routeName: "droppable", path: "/droppable" },
       { label: "Resizable", routeName: "resizable", path: "/resizable" },
-      { label: "Tall Page", routeName: "tall", path: "/tall" },
+      { label: "Tall Page", routeName: "tall",       path: "/tall" },
     ]
   },
 ];
