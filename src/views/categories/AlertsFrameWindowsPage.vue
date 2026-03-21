@@ -56,32 +56,38 @@ export default {
 </script>
 
 <style>
-/* Clickables section styles */
 .clickables {
   display: flex;
-  flex-direction: column; /* Align items in a column */
+  flex-direction: column;
   justify-content: center;
-  align-items: center; /* Center align items horizontally */
+  align-items: center;
   width: 100%;
-  margin-top: 20px;
-  padding: 10px;
+  margin-top: 1.25rem;
+  padding: 0.625rem;
 }
 
 .button-group {
   display: flex;
   justify-content: center;
+  gap: 0.5rem;
   width: 100%;
 }
 
 .button {
-  padding: 4px 16px; /* Decrease button padding */
-  border: none;
-  border-radius: 3px; /* Adjust border radius */
+  padding: 0.375rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
   cursor: pointer;
-  margin: 0 6px; /* Decrease margin */
   text-align: center;
-  background-color: lightblue; /* Apply the same background color */
-  height: 30px; /* Set a fixed height for the buttons */
+  background-color: var(--accent-light);
+  color: var(--accent);
+  height: 2.25rem;
+  font-size: 0.875rem;
+  transition: background-color 0.15s;
 }
 
+.button:hover {
+  background-color: var(--accent);
+  color: #ffffff;
+}
 </style>
