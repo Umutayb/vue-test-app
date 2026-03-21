@@ -60,57 +60,36 @@ export default {
 </script>
 
 <style>
-/* Radio buttons section styles */
 .question-box {
-  padding: 10px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  width: 100px; /* Adjust width */
-  justify-content: center;
+  padding: 0.625rem;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
   width: 100%;
-}
-
-h2 {
-  margin-bottom: 10px;
 }
 
 .radio-group {
   display: grid;
   align-items: center;
-  margin-bottom: 10px;
-  flex-wrap: nowrap; /* Ensure items do not wrap */
+  margin-bottom: 0.625rem;
   grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
-  gap: 15px; /* Adjust the gap between items */
+  gap: 1rem;
 }
 
 .radio-button {
-  display: flex; /* Use flexbox */
-  align-items: center; /* Align items vertically */
-  margin-right: 80px; /* Adjust margin as needed */
-  flex-shrink: 0; /* Prevent items from shrinking */
-}
-
-.radio-button.label-impressive label {
-  margin-right: -10px; /* Move Impressive label to the left in Safari */
+  display: flex;
+  align-items: center;
 }
 
 .radio-button label {
-  white-space: nowrap; /* Prevent wrapping of label text */
-  display: flex; /* Use flexbox */
-  align-items: center; /* Align items vertically */
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  color: var(--text-primary);
 }
 
 input[type="radio"] {
   transform: scale(1);
-  margin-right: 5px; /* Adjust spacing between the button and label */
-  
-}
-
-.radio-button input[type="radio"] {
-  margin-right: 5px;
-}
-
-.radio-button:last-child {
-  margin-right: 70px; /* Adjust margin for the "No" option */
+  margin-right: 0.3125rem;
+  accent-color: var(--accent);
 }
 </style>

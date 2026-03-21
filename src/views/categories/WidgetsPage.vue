@@ -1,7 +1,6 @@
 <template>
   <div>
-    <h2>Widgets Page</h2>
-    <a>Wellcome to Widgets!</a>
-    <!-- Your content for the Forms category page -->
+    <h2>Widgets</h2>
+    <p class="page-description">Widget components — more coming in Phase 2</p>
   </div>
 </template>
