@@ -17,6 +17,7 @@ import TabsPage from "@/views/tools/TabsPage.vue";
 import AccordionPage from "@/views/tools/AccordionPage.vue";
 import ProgressPage from "@/views/tools/ProgressPage.vue";
 import TablePage from "@/views/tools/TablePage.vue";
+import ModalPage from "@/views/tools/ModalPage.vue";
 
 const componentMap = {
   radiobuttons: RadioButtonsPage,
@@ -38,6 +39,7 @@ const componentMap = {
   accordion: AccordionPage,
   progress: ProgressPage,
   table: TablePage,
+  modal: ModalPage,
 };
 
 const descriptionMap = {
