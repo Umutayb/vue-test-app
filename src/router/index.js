@@ -22,6 +22,7 @@ import ToastPage from "@/views/tools/ToastPage.vue";
 import TooltipPage from "@/views/tools/TooltipPage.vue";
 import DrawerPage from "@/views/tools/DrawerPage.vue";
 import KanbanPage from "@/views/tools/KanbanPage.vue";
+import DropZonePage from "@/views/tools/DropZonePage.vue";
 
 const componentMap = {
   radiobuttons: RadioButtonsPage,
@@ -48,6 +49,7 @@ const componentMap = {
   tooltip: TooltipPage,
   drawer: DrawerPage,
   kanban: KanbanPage,
+  dropzone: DropZonePage,
 };
 
 const descriptionMap = {
