@@ -10,6 +10,7 @@ import RadioButtonsPage from "@/views/tools/RadioButtonsPage.vue";
 import ButtonsPage from "@/views/tools/ButtonsPage.vue";
 import TextInputsPage from "@/views/tools/TextInputsPage.vue";
 import CheckboxesPage from "@/views/tools/CheckboxesPage.vue";
+import SlidersPage from "@/views/tools/SlidersPage.vue";
 
 const componentMap = {
   radiobuttons: RadioButtonsPage,
@@ -24,6 +25,7 @@ const componentMap = {
   tall: TallPage,
   textInputs: TextInputsPage,
   checkboxes: CheckboxesPage,
+  sliders: SlidersPage,
 };
 
 const descriptionMap = {
@@ -39,6 +41,7 @@ const descriptionMap = {
   tall: "Long scrollable page for scroll testing",
   textInputs: "Text, password, email, number, and textarea inputs with states",
   checkboxes: "Checkbox and toggle switch states",
+  sliders: "Range sliders — single, dual-handle, and stepped",
 };
 
 // Import navigation config for meta lookup
