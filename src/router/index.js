@@ -33,6 +33,7 @@ import DragProgressPage from "@/views/tools/DragProgressPage.vue";
 import GalleryPage from "@/views/tools/GalleryPage.vue";
 import CarouselPage from "@/views/tools/CarouselPage.vue";
 import LoginFormPage from "@/views/tools/LoginFormPage.vue";
+import PiniaCounterPage from "@/views/tools/PiniaCounterPage.vue";
 
 const componentMap = {
   radiobuttons: RadioButtonsPage,
@@ -68,6 +69,7 @@ const componentMap = {
   gallery: GalleryPage,
   carousel: CarouselPage,
   loginForm: LoginFormPage,
+  piniaCounter: PiniaCounterPage,
 };
 
 const descriptionMap = {
