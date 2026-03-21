@@ -1,46 +1,33 @@
-<!-- ToolButton.vue -->
 <template>
-    <router-link :to="{ name: routeName }" :class="{'dark-tool-button': isDark, 'tool-button': true }">
-      <h3>{{ toolName }}</h3>
-    </router-link>
-  </template>
-  
-  <script>
-  export default {
-    props: {
-      toolName: String,
-      routeName: String,
-    },
-    data() {
-      return {
-        isDark: true
-      };
-    },
-    created (){
-      this.emitter.on('isDark', (evt) => {
-        this.isDark = evt.isDark;
-      })
-    }
-  }
-  </script>
-  
-  <style scoped>
-  .tool-button {
-    display: block;
-    text-decoration: none;
-    color: inherit;
-    border: 1px solid #2c3e50;
-    padding: 20px;
-    cursor: pointer;
-    margin: 10px;
-  }
-  
-  .tool-button:hover {
-    background-color: #f0f0f0;
-  }
-  
-  .dark-tool-button:hover {
-  color: #ffff;
-  background-color: #4e6172;
+  <router-link :to="{ name: routeName }" class="tool-button">
+    <h3>{{ toolName }}</h3>
+  </router-link>
+</template>
+
+<script>
+export default {
+  props: {
+    toolName: String,
+    routeName: String,
+  },
+};
+</script>
+
+<style scoped>
+.tool-button {
+  display: block;
+  text-decoration: none;
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  cursor: pointer;
+  margin: 0.625rem;
+  border-radius: var(--radius);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.tool-button:hover {
+  border-color: var(--accent);
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.1);
 }
 </style>
