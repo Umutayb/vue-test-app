@@ -1,9 +1,9 @@
 <template>
   <div>
     <!-- Your content for the Forms category page -->
-    <h1 id="title">Forms Page</h1>
+    <h1 id="title">Full Form</h1>
     <a>Wellcome to Forms Page!</a>
-    <h2>Student Registration Form</h2>
+    <h2>Full Form</h2>
     <form @submit.prevent="submitForm">
       <label for="name">Name:</label><br>
       <input type="text" id="name" name="name" placeholder="John Smith" v-model="formData.name"><br>
@@ -156,35 +156,47 @@ export default {
 </script>
 
 <style>
-
 form {
   width: 300px;
   margin: 0 auto;
+  text-align: left;
 }
 
 label {
   display: block;
-  margin-top: 10px;
+  margin-top: 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--text-primary);
 }
 
-input, select {
+form input,
+form select {
   width: 100%;
-  padding: 5px;
-  margin-top: 5px;
-}
-
-input[type="file"] {
-  margin-top: 15px;
+  margin-top: 0.3125rem;
 }
 
 input[type="submit"] {
-  margin-top: 20px;
-} 
+  margin-top: 1.25rem;
+  width: 100%;
+  background: linear-gradient(135deg, var(--accent), #8b5cf6);
+  color: #ffffff;
+  font-weight: 500;
+}
 
-/* Modal styles */
+input[type="submit"]:hover {
+  opacity: 0.9;
+}
+
+.error-message {
+  color: #ef4444;
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+
 .modal {
   position: fixed;
-  z-index: 10000; /* Set a high z-index value */
+  z-index: 10000;
   left: 0;
   top: 0;
   width: 100%;
@@ -194,41 +206,43 @@ input[type="submit"] {
 }
 
 .modal-content {
-  background-color: #fefefe;
+  background-color: var(--bg-primary);
   margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #888;
+  padding: 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
   width: 80%;
+  max-width: 40rem;
 }
 
-/* Table styles */
 .submitted-info-table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 15px;
+  margin-top: 1rem;
 }
 
 .submitted-info-table td {
-  border: 1px solid #ddd;
-  padding: 8px;
+  border: 1px solid var(--border);
+  padding: 0.5rem;
   text-align: left;
+  color: var(--text-primary);
 }
 
 .submitted-info-table .table-key {
   font-weight: bold;
-  background-color: #f2f2f2;
+  background-color: var(--bg-sidebar);
 }
 
 .close {
-  color: #aaa;
+  color: var(--text-muted);
   float: right;
-  font-size: 28px;
+  font-size: 1.75rem;
   font-weight: bold;
 }
 
 .close:hover,
 .close:focus {
-  color: black;
+  color: var(--text-primary);
   text-decoration: none;
   cursor: pointer;
 }
