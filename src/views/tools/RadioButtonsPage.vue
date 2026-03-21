@@ -4,18 +4,18 @@
       <h2>Do you like the site?</h2>
       <form>
         <div class="radio-group">
-          <span class="radio-button">
-            <input type="radio" name="like" value="yes" @change="handleRadioChange">
-            <label for="yes"><span>Yes</span></label>
-          </span>
-          <span class="radio-button">
-            <input type="radio" id="impressive" name="like" value="impressive" @change="handleRadioChange">
-            <label for="impressive"><span>Impressive</span></label>
-          </span>
-          <span class="radio-button">
-            <input type="radio" id="no" name="like" value="no" disabled>
-            <label for="no"><span>No</span></label>
-          </span>
+          <label class="radio-label">
+            <input type="radio" name="like" id="yes" value="yes" @change="handleRadioChange" />
+            <span>Yes</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="like" id="impressive" value="impressive" @change="handleRadioChange" />
+            <span>Impressive</span>
+          </label>
+          <label class="radio-label radio-label--disabled">
+            <input type="radio" name="like" id="no" value="no" disabled />
+            <span>No</span>
+          </label>
         </div>
         <p v-if="thanks">Thanks!</p>
         <p v-if="wow">Isn't it!</p>
@@ -60,57 +60,44 @@ export default {
 </script>
 
 <style>
-/* Radio buttons section styles */
 .question-box {
-  padding: 10px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  width: 100px; /* Adjust width */
-  justify-content: center;
+  padding: 0.625rem;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
   width: 100%;
 }
 
-h2 {
-  margin-bottom: 10px;
-}
-
 .radio-group {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.radio-label {
+  display: flex;
   align-items: center;
-  margin-bottom: 10px;
-  flex-wrap: nowrap; /* Ensure items do not wrap */
-  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
-  gap: 15px; /* Adjust the gap between items */
+  gap: 0.4rem;
+  cursor: pointer;
+  color: var(--text-primary);
+  font-size: 0.95rem;
 }
 
-.radio-button {
-  display: flex; /* Use flexbox */
-  align-items: center; /* Align items vertically */
-  margin-right: 80px; /* Adjust margin as needed */
-  flex-shrink: 0; /* Prevent items from shrinking */
-}
-
-.radio-button.label-impressive label {
-  margin-right: -10px; /* Move Impressive label to the left in Safari */
-}
-
-.radio-button label {
-  white-space: nowrap; /* Prevent wrapping of label text */
-  display: flex; /* Use flexbox */
-  align-items: center; /* Align items vertically */
+.radio-label--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 input[type="radio"] {
-  transform: scale(1);
-  margin-right: 5px; /* Adjust spacing between the button and label */
-  
+  margin: 0;
+  accent-color: var(--accent);
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+  flex-shrink: 0;
 }
 
-.radio-button input[type="radio"] {
-  margin-right: 5px;
-}
-
-.radio-button:last-child {
-  margin-right: 70px; /* Adjust margin for the "No" option */
+.radio-label--disabled input[type="radio"] {
+  cursor: not-allowed;
 }
 </style>

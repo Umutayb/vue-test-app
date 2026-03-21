@@ -1,13 +1,10 @@
 import { createApp } from "vue";
+import { createPinia } from "pinia";
 import App from "./App.vue";
-import router from './router';
-import './styles/main.css'; // Optional in case style centralisation is needed
-import mitt from 'mitt';
+import router from "./router";
+import "./styles/main.css";
 
-const emitter = mitt();
-  
-const app = createApp(App)
-    .use(router)
-
-app.config.globalProperties.emitter = emitter;
+const app = createApp(App);
+app.use(createPinia());
+app.use(router);
 router.isReady().then(() => app.mount("#app"));

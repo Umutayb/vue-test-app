@@ -1,48 +1,44 @@
-<!-- CategoryCard.vue -->
 <template>
-  <router-link :to="{ name: routeName }" :class="{'dark-category-card': isDark, 'category-card': true }">
+  <router-link :to="{ name: routeName }" class="category-card">
     <h3>{{ categoryName }}</h3>
     <p>{{ categoryDescription }}</p>
   </router-link>
 </template>
 
 <script>
-    export default {
-    props: {
-      categoryName: String,
-      categoryDescription: String,
-      routeName: String,
-    },
-    data() {
-      return {
-        isDark: true
-      };
-    },
-    mounted(){
-    this.emitter.on('isDark', (evt) => {
-      this.isDark = evt.isDark;
-    })
-  } 
-}  
+export default {
+  props: {
+    categoryName: String,
+    categoryDescription: String,
+    routeName: String,
+  },
+};
 </script>
 
 <style scoped>
 .category-card {
   display: block;
   text-decoration: none;
-  color: inherit;
-  border: 1px solid #2c3e50;
-  padding: 20px;
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
   cursor: pointer;
-  margin: 10px;
+  margin: 0.625rem;
+  border-radius: var(--radius);
+  transition: border-color 0.15s, box-shadow 0.15s;
 }
 
 .category-card:hover {
-  background-color: #f0f0f0;
+  border-color: var(--accent);
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.1);
 }
 
-.dark-category-card:hover {
-  color: #ffff;
-  background-color: #4e6172;
+.category-card h3 {
+  color: var(--text-primary);
+}
+
+.category-card p {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
 }
 </style>
