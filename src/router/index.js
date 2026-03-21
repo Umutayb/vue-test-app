@@ -16,6 +16,7 @@ import AutocompletePage from "@/views/tools/AutocompletePage.vue";
 import TabsPage from "@/views/tools/TabsPage.vue";
 import AccordionPage from "@/views/tools/AccordionPage.vue";
 import ProgressPage from "@/views/tools/ProgressPage.vue";
+import TablePage from "@/views/tools/TablePage.vue";
 
 const componentMap = {
   radiobuttons: RadioButtonsPage,
@@ -36,6 +37,7 @@ const componentMap = {
   tabs: TabsPage,
   accordion: AccordionPage,
   progress: ProgressPage,
+  table: TablePage,
 };
 
 const descriptionMap = {
@@ -57,6 +59,7 @@ const descriptionMap = {
   tabs: "Tab navigation with switchable content panels",
   accordion: "Collapsible accordion items with expand/collapse controls",
   progress: "Determinate and animated progress indicators",
+  table: "Sortable, filterable, paginated data table with row selection",
 };
 
 // Import navigation config for meta lookup
