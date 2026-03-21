@@ -8,6 +8,7 @@ import DropdownPage from "@/views/tools/DropDownPage.vue";
 import TallPage from "@/views/tools/TallPage.vue";
 import RadioButtonsPage from "@/views/tools/RadioButtonsPage.vue";
 import ButtonsPage from "@/views/tools/ButtonsPage.vue";
+import TextInputsPage from "@/views/tools/TextInputsPage.vue";
 
 const componentMap = {
   radiobuttons: RadioButtonsPage,
@@ -20,6 +21,7 @@ const componentMap = {
   droppable: InteractionsPage,
   resizable: InteractionsPage,
   tall: TallPage,
+  textInputs: TextInputsPage,
 };
 
 const descriptionMap = {
@@ -33,6 +35,7 @@ const descriptionMap = {
   droppable: "Droppable interaction components",
   resizable: "Resizable interaction components",
   tall: "Long scrollable page for scroll testing",
+  textInputs: "Text, password, email, number, and textarea inputs with states",
 };
 
 // Import navigation config for meta lookup
