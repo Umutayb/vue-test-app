@@ -32,6 +32,7 @@ import ResizablePage from "@/views/tools/ResizablePage.vue";
 import DragProgressPage from "@/views/tools/DragProgressPage.vue";
 import GalleryPage from "@/views/tools/GalleryPage.vue";
 import CarouselPage from "@/views/tools/CarouselPage.vue";
+import LoginFormPage from "@/views/tools/LoginFormPage.vue";
 
 const componentMap = {
   radiobuttons: RadioButtonsPage,
@@ -66,6 +67,7 @@ const componentMap = {
   dragProgress: DragProgressPage,
   gallery: GalleryPage,
   carousel: CarouselPage,
+  loginForm: LoginFormPage,
 };
 
 const descriptionMap = {
