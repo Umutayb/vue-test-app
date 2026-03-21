@@ -27,6 +27,7 @@ import InfiniteScrollPage from "@/views/tools/InfiniteScrollPage.vue";
 import LoadingPage from "@/views/tools/LoadingPage.vue";
 import DynamicFormPage from "@/views/tools/DynamicFormPage.vue";
 import SliderIndicatorPage from "@/views/tools/SliderIndicatorPage.vue";
+import DraggablePage from "@/views/tools/DraggablePage.vue";
 
 const componentMap = {
   radiobuttons: RadioButtonsPage,
@@ -35,7 +36,7 @@ const componentMap = {
   dropDown: DropdownPage,
   alerts: AlertsFrameWindowsPage,
   sortable: SortablePage,
-  draggable: InteractionsPage,
+  draggable: DraggablePage,
   droppable: InteractionsPage,
   resizable: InteractionsPage,
   tall: TallPage,
