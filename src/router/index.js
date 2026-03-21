@@ -7,9 +7,11 @@ import SortablePage from "@/views/tools/SortablePage.vue";
 import DropdownPage from "@/views/tools/DropDownPage.vue";
 import TallPage from "@/views/tools/TallPage.vue";
 import RadioButtonsPage from "@/views/tools/RadioButtonsPage.vue";
+import ButtonsPage from "@/views/tools/ButtonsPage.vue";
 
 const componentMap = {
   radiobuttons: RadioButtonsPage,
+  buttons: ButtonsPage,
   forms: FormsPage,
   dropDown: DropdownPage,
   alerts: AlertsFrameWindowsPage,
@@ -22,6 +24,7 @@ const componentMap = {
 
 const descriptionMap = {
   radiobuttons: "Radio button interactions and state changes",
+  buttons: "Button variants, states, and sizes",
   forms: "A multi-field form with validation and submission modal",
   dropDown: "Country selector dropdown with search",
   alerts: "Click handlers, alerts, and window management",
