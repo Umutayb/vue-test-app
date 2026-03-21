@@ -60,13 +60,7 @@ export default {
           list: 2,
         },
       ],
-      isDark: true
     };
-  },
-  created (){
-      this.emitter.on('isDark', (evt) => {
-        this.isDark = evt.isDark;
-      })
   },
   methods: {
     getList(list) {
@@ -103,28 +97,34 @@ export default {
 </script>
 
 <style>
-
 .drop-zone {
   width: 50%;
-  margin: 50px auto;
-  background-color: #ecf0f1;
+  margin: 1.5rem auto;
+  background-color: var(--bg-sidebar);
   min-height: 10px;
-  margin-bottom: 10px;
-  padding: 10px;
-}
-
-.dark .drop-zone {
-  background-color: #333; /* Change the background color of drop-zone in dark mode */
+  margin-bottom: 0.625rem;
+  padding: 0.625rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
 }
 
 .drag-el {
-  background-color: #fff;
-  margin-bottom: 10px;
-  padding: 5px;
+  background-color: var(--bg-input);
+  color: var(--text-primary);
+  margin-bottom: 0.625rem;
+  padding: 0.5rem;
+  border-radius: calc(var(--radius) / 2);
+  border: 1px solid var(--border);
+  cursor: grab;
 }
 
-.dark .drag-el {
-  background-color: #444; /* Change the background color of drag-el in dark mode */
-  color: #fff; /* Change the text color of drag-el in dark mode */
+.drag-el:active {
+  cursor: grabbing;
+}
+
+.bold-title {
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
 }
 </style>
