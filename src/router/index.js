@@ -60,6 +60,16 @@ const descriptionMap = {
   accordion: "Collapsible accordion items with expand/collapse controls",
   progress: "Determinate and animated progress indicators",
   table: "Sortable, filterable, paginated data table with row selection",
+  modal:          "Modal dialogs — open, close, confirm, dismiss",
+  toast:          "Toast notifications — success, error, warning, info with auto-dismiss",
+  tooltip:        "Hover tooltips and click-triggered popovers",
+  drawer:         "Slide-in drawer panel from left or right",
+  kanban:         "Drag-and-drop Kanban board with three columns",
+  dropzone:       "Drag items between source list and drop target zone",
+  infiniteScroll: "Scrollable list that loads more items at the bottom",
+  loading:        "Spinner, skeleton, progress bar, and button loading states",
+  dynamicForm:    "Form with dynamically added and removed fields",
+  sliderIndicator: "Range slider with a floating value bubble that follows the thumb",
 };
 
 // Import navigation config for meta lookup

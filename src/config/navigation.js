@@ -6,7 +6,8 @@ export const navigation = [
       { label: "Buttons",             routeName: "buttons",      path: "/buttons" },
       { label: "Text Inputs",         routeName: "textInputs",   path: "/text-inputs" },
       { label: "Checkboxes & Toggles", routeName: "checkboxes",  path: "/checkboxes" },
-      { label: "Sliders",             routeName: "sliders",      path: "/sliders" },
+      { label: "Sliders",             routeName: "sliders",          path: "/sliders" },
+      { label: "Slider Indicator",  routeName: "sliderIndicator", path: "/slider-indicator" },
     ]
   },
   {
@@ -21,7 +22,11 @@ export const navigation = [
   {
     category: "Alerts, Frame & Windows",
     items: [
-      { label: "Alerts", routeName: "alerts", path: "/alerts" },
+      { label: "Alerts",            routeName: "alerts",   path: "/alerts" },
+      { label: "Modal",             routeName: "modal",          path: "/modal" },
+      { label: "Toast",             routeName: "toast",          path: "/toast" },
+      { label: "Tooltip & Popover", routeName: "tooltip",        path: "/tooltip" },
+      { label: "Drawer",            routeName: "drawer",         path: "/drawer" },
     ]
   },
   {
@@ -40,7 +45,12 @@ export const navigation = [
       { label: "Draggable", routeName: "draggable", path: "/draggable" },
       { label: "Droppable", routeName: "droppable", path: "/droppable" },
       { label: "Resizable", routeName: "resizable", path: "/resizable" },
-      { label: "Tall Page", routeName: "tall",       path: "/tall" },
+      { label: "Tall Page",        routeName: "tall",           path: "/tall" },
+      { label: "Kanban",            routeName: "kanban",         path: "/kanban" },
+      { label: "Drop Zone",         routeName: "dropzone",       path: "/dropzone" },
+      { label: "Infinite Scroll",   routeName: "infiniteScroll", path: "/infinite-scroll" },
+      { label: "Loading States",    routeName: "loading",        path: "/loading" },
+      { label: "Dynamic Form",      routeName: "dynamicForm",    path: "/dynamic-form" },
     ]
   },
 ];
