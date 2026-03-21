@@ -2,7 +2,7 @@
     <div>
       <h2>Dropdown Page</h2>
       <a>Where the most threacherous dropdowns reside...</a>
-      <v-select :options="countriesList" id="countriesDropDown" :class="{ 'custom-dropdown': isDark }" />
+      <v-select :options="countriesList" id="countriesDropDown" class="themed-dropdown" />
       <!-- Your content for the Forms category page -->
     </div>
   </template>
@@ -12,37 +12,29 @@
     import 'vue-select/dist/vue-select.css';
 
     export default {
-    components: {
-      vSelect,
-    },
-    data() {
-      return {
-        countriesList: Object.values(require("countries-list").countries).map(country => country.name),
-        isDark: true
-      };
-    },
-    mounted (){
-    this.emitter.on('isDark', (evt) => {
-      this.isDark = evt.isDark;
-    })
-  }
-}
+      components: {
+        vSelect,
+      },
+      data() {
+        return {
+          countriesList: Object.values(require("countries-list").countries).map(country => country.name),
+        };
+      },
+    }
   </script>
 <style>
-.custom-dropdown .vs__dropdown-menu {
-  --vs-controls-color: #4e6172;
-  --vs-border-color: #4e6172;
-
-  --vs-dropdown-bg: #282c34;
-  --vs-dropdown-color: #4e6172;
-  --vs-dropdown-option-color: #4e6172;
-
-  --vs-selected-bg: #50708d;
-  --vs-selected-color: #eeeeee;
-
-  --vs-search-input-color: #eeeeee;
-
-  --vs-dropdown-option--active-bg: #4e6172;
-  --vs-dropdown-option--active-color: #eeeeee;
+.themed-dropdown {
+  --vs-controls-color: var(--text-muted);
+  --vs-border-color: var(--border);
+  --vs-dropdown-bg: var(--bg-primary);
+  --vs-dropdown-color: var(--text-secondary);
+  --vs-dropdown-option-color: var(--text-secondary);
+  --vs-selected-bg: var(--accent);
+  --vs-selected-color: #ffffff;
+  --vs-search-input-color: var(--text-primary);
+  --vs-dropdown-option--active-bg: var(--accent-light);
+  --vs-dropdown-option--active-color: var(--accent);
+  max-width: 24rem;
+  margin: 1rem auto;
 }
 </style>
