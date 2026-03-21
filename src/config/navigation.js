@@ -8,6 +8,7 @@ export const navigation = [
       { label: "Checkboxes & Toggles", routeName: "checkboxes",  path: "/checkboxes" },
       { label: "Sliders",             routeName: "sliders",          path: "/sliders" },
       { label: "Slider Indicator",  routeName: "sliderIndicator", path: "/slider-indicator" },
+      { label: "Drag Progress",   routeName: "dragProgress",  path: "/drag-progress" },
     ]
   },
   {
@@ -51,6 +52,28 @@ export const navigation = [
       { label: "Infinite Scroll",   routeName: "infiniteScroll", path: "/infinite-scroll" },
       { label: "Loading States",    routeName: "loading",        path: "/loading" },
       { label: "Dynamic Form",      routeName: "dynamicForm",    path: "/dynamic-form" },
+    ]
+  },
+  {
+    category: "Media",
+    items: [
+      { label: "Image Gallery", routeName: "gallery",  path: "/gallery" },
+      { label: "Carousel",      routeName: "carousel", path: "/carousel" },
+    ]
+  },
+  {
+    category: "Auth & State",
+    items: [
+      { label: "Login Form",    routeName: "loginForm",    path: "/login-form" },
+      { label: "Pinia Counter", routeName: "piniaCounter", path: "/pinia-counter" },
+    ]
+  },
+  {
+    category: "Edge Cases",
+    items: [
+      { label: "Long List",       routeName: "longList",    path: "/long-list" },
+      { label: "Multi-step Form", routeName: "multistep",   path: "/multistep" },
+      { label: "State Viewer",    routeName: "stateViewer", path: "/state-viewer" },
     ]
   },
 ];

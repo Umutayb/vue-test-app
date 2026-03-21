@@ -90,6 +90,14 @@ const descriptionMap = {
   loading:        "Spinner, skeleton, progress bar, and button loading states",
   dynamicForm:    "Form with dynamically added and removed fields",
   sliderIndicator: "Range slider with a floating value bubble that follows the thumb",
+  dragProgress: "Click or drag on a progress bar to set its fill percentage",
+  gallery:      "Image grid with click-to-zoom overlay",
+  carousel:     "Auto-playing slideshow with prev/next navigation and dot indicators",
+  loginForm:    "Login form with validation, error, and success states",
+  piniaCounter: "Shared Pinia counter with increment, decrement, and reset",
+  longList:     "200-item list with live search filter and count display",
+  multistep:    "Three-step form wizard with validation and step indicators",
+  stateViewer:  "Toggle between empty, loading, error, and populated UI states",
 };
 
 // Import navigation config for meta lookup
