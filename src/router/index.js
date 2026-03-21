@@ -11,6 +11,7 @@ import ButtonsPage from "@/views/tools/ButtonsPage.vue";
 import TextInputsPage from "@/views/tools/TextInputsPage.vue";
 import CheckboxesPage from "@/views/tools/CheckboxesPage.vue";
 import SlidersPage from "@/views/tools/SlidersPage.vue";
+import FileUploadPage from "@/views/tools/FileUploadPage.vue";
 
 const componentMap = {
   radiobuttons: RadioButtonsPage,
@@ -26,6 +27,7 @@ const componentMap = {
   textInputs: TextInputsPage,
   checkboxes: CheckboxesPage,
   sliders: SlidersPage,
+  fileUpload: FileUploadPage,
 };
 
 const descriptionMap = {
@@ -42,6 +44,7 @@ const descriptionMap = {
   textInputs: "Text, password, email, number, and textarea inputs with states",
   checkboxes: "Checkbox and toggle switch states",
   sliders: "Range sliders — single, dual-handle, and stepped",
+  fileUpload: "Single, multiple, and drag-and-drop file inputs",
 };
 
 // Import navigation config for meta lookup
