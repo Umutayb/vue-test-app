@@ -14,6 +14,7 @@ import SlidersPage from "@/views/tools/SlidersPage.vue";
 import FileUploadPage from "@/views/tools/FileUploadPage.vue";
 import AutocompletePage from "@/views/tools/AutocompletePage.vue";
 import TabsPage from "@/views/tools/TabsPage.vue";
+import AccordionPage from "@/views/tools/AccordionPage.vue";
 
 const componentMap = {
   radiobuttons: RadioButtonsPage,
@@ -32,6 +33,7 @@ const componentMap = {
   fileUpload: FileUploadPage,
   autocomplete: AutocompletePage,
   tabs: TabsPage,
+  accordion: AccordionPage,
 };
 
 const descriptionMap = {
@@ -51,6 +53,7 @@ const descriptionMap = {
   fileUpload: "Single, multiple, and drag-and-drop file inputs",
   autocomplete: "Input with filtered dropdown suggestions and keyboard navigation",
   tabs: "Tab navigation with switchable content panels",
+  accordion: "Collapsible accordion items with expand/collapse controls",
 };
 
 // Import navigation config for meta lookup
