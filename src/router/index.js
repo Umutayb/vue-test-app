@@ -24,6 +24,7 @@ import DrawerPage from "@/views/tools/DrawerPage.vue";
 import KanbanPage from "@/views/tools/KanbanPage.vue";
 import DropZonePage from "@/views/tools/DropZonePage.vue";
 import InfiniteScrollPage from "@/views/tools/InfiniteScrollPage.vue";
+import LoadingPage from "@/views/tools/LoadingPage.vue";
 
 const componentMap = {
   radiobuttons: RadioButtonsPage,
@@ -52,6 +53,7 @@ const componentMap = {
   kanban: KanbanPage,
   dropzone: DropZonePage,
   infiniteScroll: InfiniteScrollPage,
+  loading: LoadingPage,
 };
 
 const descriptionMap = {
