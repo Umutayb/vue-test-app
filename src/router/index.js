@@ -29,6 +29,9 @@ import SliderIndicatorPage from "@/views/tools/SliderIndicatorPage.vue";
 import DraggablePage from "@/views/tools/DraggablePage.vue";
 import DroppablePage from "@/views/tools/DroppablePage.vue";
 import ResizablePage from "@/views/tools/ResizablePage.vue";
+import DragProgressPage from "@/views/tools/DragProgressPage.vue";
+import GalleryPage from "@/views/tools/GalleryPage.vue";
+import CarouselPage from "@/views/tools/CarouselPage.vue";
 
 const componentMap = {
   radiobuttons: RadioButtonsPage,
@@ -60,6 +63,9 @@ const componentMap = {
   loading: LoadingPage,
   dynamicForm: DynamicFormPage,
   sliderIndicator: SliderIndicatorPage,
+  dragProgress: DragProgressPage,
+  gallery: GalleryPage,
+  carousel: CarouselPage,
 };
 
 const descriptionMap = {
