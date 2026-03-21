@@ -34,6 +34,9 @@ import GalleryPage from "@/views/tools/GalleryPage.vue";
 import CarouselPage from "@/views/tools/CarouselPage.vue";
 import LoginFormPage from "@/views/tools/LoginFormPage.vue";
 import PiniaCounterPage from "@/views/tools/PiniaCounterPage.vue";
+import LongListPage from "@/views/tools/LongListPage.vue";
+import MultistepPage from "@/views/tools/MultistepPage.vue";
+import StateViewerPage from "@/views/tools/StateViewerPage.vue";
 
 const componentMap = {
   radiobuttons: RadioButtonsPage,
@@ -70,6 +73,9 @@ const componentMap = {
   carousel: CarouselPage,
   loginForm: LoginFormPage,
   piniaCounter: PiniaCounterPage,
+  longList: LongListPage,
+  multistep: MultistepPage,
+  stateViewer: StateViewerPage,
 };
 
 const descriptionMap = {
