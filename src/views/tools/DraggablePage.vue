@@ -8,9 +8,12 @@
     <div
       class="canvas"
       data-testid="draggable-canvas"
-      @mousemove="onMouseMove"
-      @mouseup="onMouseUp"
-      @mouseleave="onMouseUp"
+      @mousemove="onPointerMove"
+      @mouseup="onPointerUp"
+      @mouseleave="onPointerUp"
+      @touchmove.prevent="onTouchMove"
+      @touchend="onPointerUp"
+      @touchcancel="onPointerUp"
     >
       <div
         v-for="item in items"
@@ -18,7 +21,8 @@
         class="drag-item"
         :data-testid="`draggable-item-${item.id}`"
         :style="{ left: item.x + 'px', top: item.y + 'px' }"
-        @mousedown.prevent="onMouseDown($event, item)"
+        @mousedown.prevent="onPointerDown($event, item)"
+        @touchstart.prevent="onTouchStart($event, item)"
       >{{ item.label }}</div>
     </div>
   </div>
@@ -40,21 +44,34 @@ export default {
     };
   },
   methods: {
-    onMouseDown(event, item) {
+    onPointerDown(event, item) {
       this.draggingId = item.id;
       this.offsetX = event.clientX - item.x;
       this.offsetY = event.clientY - item.y;
     },
-    onMouseMove(event) {
+    onTouchStart(event, item) {
+      const touch = event.touches[0];
+      this.draggingId = item.id;
+      this.offsetX = touch.clientX - item.x;
+      this.offsetY = touch.clientY - item.y;
+    },
+    onPointerMove(event) {
+      this.moveItem(event.clientX, event.clientY);
+    },
+    onTouchMove(event) {
+      const touch = event.touches[0];
+      this.moveItem(touch.clientX, touch.clientY);
+    },
+    moveItem(clientX, clientY) {
       if (this.draggingId === null) return;
       const canvas = this.$el.querySelector('.canvas');
       const rect = canvas.getBoundingClientRect();
       const item = this.items.find(i => i.id === this.draggingId);
       if (!item) return;
-      item.x = Math.max(0, Math.min(rect.width - 80, event.clientX - this.offsetX));
-      item.y = Math.max(0, Math.min(rect.height - 40, event.clientY - this.offsetY));
+      item.x = Math.max(0, Math.min(rect.width - 80, clientX - this.offsetX));
+      item.y = Math.max(0, Math.min(rect.height - 40, clientY - this.offsetY));
     },
-    onMouseUp() {
+    onPointerUp() {
       this.draggingId = null;
     },
   },
@@ -70,6 +87,7 @@ export default {
   position: relative; width: 100%; height: 280px;
   border: 1px solid var(--border); border-radius: var(--radius);
   background: var(--bg-sidebar); user-select: none; overflow: hidden;
+  touch-action: none;
 }
 .drag-item {
   position: absolute; width: 80px; height: 40px;
