@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { navigation, findNavItem } from '@/config/navigation';
+import { navigation, findNavItem, categorySlug } from '@/config/navigation';
 
 describe('navigation config', () => {
   it('exports a non-empty array of categories', () => {
@@ -33,6 +33,14 @@ describe('navigation config', () => {
     const paths = navigation.flatMap(g => g.items.map(i => i.path));
     expect(new Set(paths).size).toBe(paths.length);
   });
+
+  it('every category has an icon property', () => {
+    for (const group of navigation) {
+      expect(group).toHaveProperty('icon');
+      expect(typeof group.icon).toBe('string');
+      expect(group.icon.length).toBeGreaterThan(0);
+    }
+  });
 });
 
 describe('findNavItem', () => {
@@ -54,5 +62,13 @@ describe('findNavItem', () => {
     expect(findNavItem('tabs').category).toBe('Widgets');
     expect(findNavItem('sortable').category).toBe('Interactions');
     expect(findNavItem('gallery').category).toBe('Media');
+  });
+});
+
+describe('categorySlug', () => {
+  it('categorySlug converts names to kebab-case', () => {
+    expect(categorySlug('Elements')).toBe('elements');
+    expect(categorySlug('Alerts, Frame & Windows')).toBe('alerts-frame-windows');
+    expect(categorySlug('Auth & State')).toBe('auth-state');
   });
 });

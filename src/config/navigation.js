@@ -1,6 +1,7 @@
 export const navigation = [
   {
     category: "Elements",
+    icon: "◎",
     items: [
       { label: "Radio Buttons",       routeName: "radiobuttons", path: "/radiobuttons" },
       { label: "Buttons",             routeName: "buttons",      path: "/buttons" },
@@ -13,6 +14,7 @@ export const navigation = [
   },
   {
     category: "Forms",
+    icon: "📝",
     items: [
       { label: "Full Form",    routeName: "forms",        path: "/forms" },
       { label: "Dropdown",     routeName: "dropDown",     path: "/dropdown" },
@@ -22,6 +24,7 @@ export const navigation = [
   },
   {
     category: "Alerts, Frame & Windows",
+    icon: "🔔",
     items: [
       { label: "Alerts",            routeName: "alerts",   path: "/alerts" },
       { label: "Modal",             routeName: "modal",          path: "/modal" },
@@ -32,6 +35,7 @@ export const navigation = [
   },
   {
     category: "Widgets",
+    icon: "📊",
     items: [
       { label: "Tabs",      routeName: "tabs",      path: "/tabs" },
       { label: "Accordion", routeName: "accordion", path: "/accordion" },
@@ -41,6 +45,7 @@ export const navigation = [
   },
   {
     category: "Interactions",
+    icon: "🔀",
     items: [
       { label: "Sortable",  routeName: "sortable",  path: "/sortable" },
       { label: "Draggable", routeName: "draggable", path: "/draggable" },
@@ -56,6 +61,7 @@ export const navigation = [
   },
   {
     category: "Media",
+    icon: "🖼️",
     items: [
       { label: "Image Gallery", routeName: "gallery",  path: "/gallery" },
       { label: "Carousel",      routeName: "carousel", path: "/carousel" },
@@ -63,6 +69,7 @@ export const navigation = [
   },
   {
     category: "Auth & State",
+    icon: "🔐",
     items: [
       { label: "Login Form",    routeName: "loginForm",    path: "/login-form" },
       { label: "Pinia Counter", routeName: "piniaCounter", path: "/pinia-counter" },
@@ -70,6 +77,7 @@ export const navigation = [
   },
   {
     category: "Edge Cases",
+    icon: "⚡",
     items: [
       { label: "Long List",       routeName: "longList",    path: "/long-list" },
       { label: "Multi-step Form", routeName: "multistep",   path: "/multistep" },
@@ -88,4 +96,15 @@ export function findNavItem(routeName) {
     if (item) return { ...item, category: group.category };
   }
   return undefined;
+}
+
+/**
+ * Derive a slug from a category name for use in data-testid attributes.
+ * e.g., "Alerts, Frame & Windows" → "alerts-frame-windows"
+ */
+export function categorySlug(categoryName) {
+  return categoryName
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '');
 }
