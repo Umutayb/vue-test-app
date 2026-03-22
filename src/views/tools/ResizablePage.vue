@@ -18,6 +18,7 @@
           class="resize-handle"
           data-testid="resizable-handle"
           @mousedown.prevent="startResize"
+          @touchstart.prevent="startTouchResize"
         ></div>
       </div>
     </div>
@@ -37,12 +38,18 @@ export default {
   mounted() {
     this._onMouseMove = this.onMouseMove.bind(this);
     this._onMouseUp = this.onMouseUp.bind(this);
+    this._onTouchMove = this.onTouchMove.bind(this);
+    this._onTouchEnd = this.onTouchEnd.bind(this);
     document.addEventListener('mousemove', this._onMouseMove);
     document.addEventListener('mouseup', this._onMouseUp);
+    document.addEventListener('touchmove', this._onTouchMove, { passive: false });
+    document.addEventListener('touchend', this._onTouchEnd);
   },
   beforeUnmount() {
     document.removeEventListener('mousemove', this._onMouseMove);
     document.removeEventListener('mouseup', this._onMouseUp);
+    document.removeEventListener('touchmove', this._onTouchMove);
+    document.removeEventListener('touchend', this._onTouchEnd);
   },
   methods: {
     startResize(event) {
@@ -50,12 +57,28 @@ export default {
       this.startX = event.clientX;
       this.startWidth = this.panelWidth;
     },
-    onMouseMove(event) {
+    startTouchResize(event) {
+      this.isResizing = true;
+      this.startX = event.touches[0].clientX;
+      this.startWidth = this.panelWidth;
+    },
+    applyResize(clientX) {
       if (!this.isResizing) return;
-      const delta = event.clientX - this.startX;
+      const delta = clientX - this.startX;
       this.panelWidth = Math.max(150, Math.min(600, this.startWidth + delta));
     },
+    onMouseMove(event) {
+      this.applyResize(event.clientX);
+    },
+    onTouchMove(event) {
+      if (!this.isResizing) return;
+      event.preventDefault();
+      this.applyResize(event.touches[0].clientX);
+    },
     onMouseUp() {
+      this.isResizing = false;
+    },
+    onTouchEnd() {
       this.isResizing = false;
     },
   },
@@ -78,6 +101,7 @@ export default {
   position: absolute; right: -5px; top: 0; bottom: 0; width: 10px;
   cursor: col-resize; display: flex; align-items: center; justify-content: center;
   border-radius: 0 var(--radius) var(--radius) 0;
+  touch-action: none;
 }
 .resize-handle::after {
   content: ''; width: 4px; height: 40px;
