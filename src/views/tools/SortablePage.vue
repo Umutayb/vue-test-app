@@ -19,6 +19,7 @@
           :data-testid="`sortable-item-${item.id}`"
           draggable="true"
           @dragstart="startDrag($event, item)"
+          @touchstart.prevent="onTouchStart($event, item)"
         >{{ item.title }}</div>
       </div>
 
@@ -37,6 +38,7 @@
           :data-testid="`sortable-item-${item.id}`"
           draggable="true"
           @dragstart="startDrag($event, item)"
+          @touchstart.prevent="onTouchStart($event, item)"
         >{{ item.title }}</div>
       </div>
     </div>
@@ -54,7 +56,20 @@ export default {
         { id: 4, title: 'Item D', list: 2 },
         { id: 5, title: 'Item E', list: 2 },
       ],
+      touchDragging: null,
+      touchGhost: null,
     };
+  },
+  mounted() {
+    this._onTouchMove = this.onTouchMove.bind(this);
+    this._onTouchEnd = this.onTouchEnd.bind(this);
+    document.addEventListener('touchmove', this._onTouchMove, { passive: false });
+    document.addEventListener('touchend', this._onTouchEnd);
+  },
+  beforeUnmount() {
+    document.removeEventListener('touchmove', this._onTouchMove);
+    document.removeEventListener('touchend', this._onTouchEnd);
+    this.removeTouchGhost();
   },
   methods: {
     getList(list) {
@@ -70,6 +85,54 @@ export default {
       const idx = this.items.findIndex(item => item.id === itemID);
       if (idx !== -1) {
         this.items[idx].list = newList;
+      }
+    },
+    onTouchStart(event, item) {
+      this.touchDragging = item;
+      const touch = event.touches[0];
+      const el = event.target;
+      const ghost = el.cloneNode(true);
+      ghost.style.position = 'fixed';
+      ghost.style.left = touch.clientX - 40 + 'px';
+      ghost.style.top = touch.clientY - 20 + 'px';
+      ghost.style.width = el.offsetWidth + 'px';
+      ghost.style.opacity = '0.8';
+      ghost.style.pointerEvents = 'none';
+      ghost.style.zIndex = '9999';
+      ghost.style.touchAction = 'none';
+      document.body.appendChild(ghost);
+      this.touchGhost = ghost;
+    },
+    onTouchMove(event) {
+      if (!this.touchDragging) return;
+      event.preventDefault();
+      const touch = event.touches[0];
+      if (this.touchGhost) {
+        this.touchGhost.style.left = touch.clientX - 40 + 'px';
+        this.touchGhost.style.top = touch.clientY - 20 + 'px';
+      }
+    },
+    onTouchEnd(event) {
+      if (!this.touchDragging) return;
+      this.removeTouchGhost();
+      const touch = event.changedTouches[0];
+      const target = document.elementFromPoint(touch.clientX, touch.clientY);
+      if (target) {
+        const listEl = target.closest('[data-testid^="sortable-list-"]');
+        if (listEl) {
+          const newList = parseInt(listEl.dataset.testid.replace('sortable-list-', ''), 10);
+          const idx = this.items.findIndex(i => i.id === this.touchDragging.id);
+          if (idx !== -1) {
+            this.items[idx].list = newList;
+          }
+        }
+      }
+      this.touchDragging = null;
+    },
+    removeTouchGhost() {
+      if (this.touchGhost) {
+        this.touchGhost.remove();
+        this.touchGhost = null;
       }
     },
   },
@@ -93,4 +156,8 @@ export default {
   margin-bottom: 0.5rem; cursor: grab; color: var(--text-primary); font-size: 0.875rem;
 }
 .sort-item:active { cursor: grabbing; }
+@media (max-width: 767px) {
+  .lists-layout { flex-direction: column; }
+  .sort-item { min-height: 44px; display: flex; align-items: center; }
+}
 </style>
