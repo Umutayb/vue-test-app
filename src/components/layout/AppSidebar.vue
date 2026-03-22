@@ -222,11 +222,6 @@ export default {
   top: 0;
 }
 
-/* ===== Mobile Header (hidden by default) ===== */
-.sidebar-header--mobile {
-  display: none;
-}
-
 /* ===== Sidebar Header ===== */
 .sidebar-header {
   padding: 1rem 1.25rem;
@@ -236,6 +231,12 @@ export default {
   gap: 0.625rem;
   text-decoration: none;
   cursor: pointer;
+}
+
+/* ===== Mobile Header (hidden by default) ===== */
+/* Moved BELOW .sidebar-header so display: none overrides display: flex */
+.sidebar-header--mobile {
+  display: none;
 }
 
 .sidebar-logo {

@@ -87,15 +87,15 @@ export default {
       this.animating = true;
       this.animatedPct = 0;
       this.animInterval = setInterval(() => {
-        this.animatedPct = Math.min(100, this.animatedPct + 2);
+        this.animatedPct = Math.min(100, this.animatedPct + 1);
         if (this.animatedPct >= 100) {
           clearInterval(this.animInterval);
           setTimeout(() => {
             this.animatedPct = 0;
             this.animating = false;
-          }, 500);
+          }, 1000);
         }
-      }, 20);
+      }, 40);
     },
   },
 };
