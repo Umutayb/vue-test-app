@@ -13,7 +13,7 @@ Whether you're writing your first Playwright test or stress-testing a custom aut
 ### 🔘 Elements (7)
 Buttons in every flavor, radio buttons, checkboxes, toggles, sliders (single, dual-handle, stepped), a slider with a floating value bubble, and a drag-to-set progress bar. Click everything.
 
-### 📝 Forms (4)
+### 📝 Forms (5)
 A full multi-field form with validation, a country dropdown with search, drag-and-drop file upload, and an autocomplete with keyboard navigation. Tab through them all.
 
 ### 🪟 Alerts, Frame & Windows (5)
@@ -25,7 +25,7 @@ Tabs, accordions, progress bars, and a sortable/filterable/paginated data table.
 ### 🎮 Interactions (10)
 Drag-and-drop sortable lists, free-position draggables, typed drop zones, resizable panels, a Kanban board, infinite scroll, loading states (spinners, skeletons, progress), and a dynamic form that grows and shrinks. This is where things get fun.
 
-### 🖼️ Media (2)
+### 🖼️ Media (3)
 An image gallery with click-to-zoom and an auto-playing carousel with dot navigation.
 
 ### 🔐 Auth & State (2)
