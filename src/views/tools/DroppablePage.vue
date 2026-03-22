@@ -16,6 +16,7 @@
           :data-testid="`droppable-item-${item.id}`"
           draggable="true"
           @dragstart="onDragStart($event, item)"
+          @touchstart.prevent="onTouchStart($event, item)"
         >{{ item.label }}</div>
       </div>
     </div>
@@ -65,14 +66,30 @@ export default {
         { type: 'green', label: 'Green Zone', items: [] },
       ],
       draggingItem: null,
+      touchGhost: null,
       status: 'Ready',
     };
+  },
+  mounted() {
+    this._onTouchMove = this.onTouchMove.bind(this);
+    this._onTouchEnd = this.onTouchEnd.bind(this);
+    document.addEventListener('touchmove', this._onTouchMove, { passive: false });
+    document.addEventListener('touchend', this._onTouchEnd);
+  },
+  beforeUnmount() {
+    document.removeEventListener('touchmove', this._onTouchMove);
+    document.removeEventListener('touchend', this._onTouchEnd);
+    this.removeTouchGhost();
   },
   methods: {
     onDragStart(event, item) {
       this.draggingItem = item;
     },
     onDrop(event, zoneType) {
+      if (!this.draggingItem) return;
+      this.dropIntoZone(zoneType);
+    },
+    dropIntoZone(zoneType) {
       if (!this.draggingItem) return;
       if (this.draggingItem.type !== zoneType) {
         this.status = 'Wrong zone!';
@@ -87,6 +104,52 @@ export default {
         this.status = `Dropped ${this.draggingItem.label} into ${zone.label}`;
       }
       this.draggingItem = null;
+    },
+    onTouchStart(event, item) {
+      this.draggingItem = item;
+      const touch = event.touches[0];
+      const el = event.target;
+      const ghost = el.cloneNode(true);
+      ghost.style.position = 'fixed';
+      ghost.style.left = touch.clientX - 30 + 'px';
+      ghost.style.top = touch.clientY - 15 + 'px';
+      ghost.style.opacity = '0.8';
+      ghost.style.pointerEvents = 'none';
+      ghost.style.zIndex = '9999';
+      ghost.style.touchAction = 'none';
+      document.body.appendChild(ghost);
+      this.touchGhost = ghost;
+    },
+    onTouchMove(event) {
+      if (!this.draggingItem) return;
+      event.preventDefault();
+      const touch = event.touches[0];
+      if (this.touchGhost) {
+        this.touchGhost.style.left = touch.clientX - 30 + 'px';
+        this.touchGhost.style.top = touch.clientY - 15 + 'px';
+      }
+    },
+    onTouchEnd(event) {
+      if (!this.draggingItem) return;
+      this.removeTouchGhost();
+      const touch = event.changedTouches[0];
+      const target = document.elementFromPoint(touch.clientX, touch.clientY);
+      if (target) {
+        const zoneEl = target.closest('[data-testid^="droppable-zone-"]');
+        if (zoneEl) {
+          const zoneType = zoneEl.dataset.testid.replace('droppable-zone-', '');
+          this.dropIntoZone(zoneType);
+          return;
+        }
+      }
+      this.draggingItem = null;
+      this.status = 'Missed drop zone';
+    },
+    removeTouchGhost() {
+      if (this.touchGhost) {
+        this.touchGhost.remove();
+        this.touchGhost = null;
+      }
     },
     reset() {
       this.sourceItems = INITIAL_ITEMS.map(i => ({ ...i }));
@@ -117,4 +180,8 @@ export default {
 .item-green { background: #dcfce7; color: #22c55e; }
 .reset-btn { padding: 0.4rem 1rem; background: var(--bg-input); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text-secondary); cursor: pointer; font-size: 0.875rem; }
 .reset-btn:hover { background: var(--border); }
+@media (max-width: 767px) {
+  .zones-row { flex-direction: column; }
+  .drop-item { min-height: 44px; display: flex; align-items: center; }
+}
 </style>
