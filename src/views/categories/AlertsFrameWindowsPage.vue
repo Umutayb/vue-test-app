@@ -39,17 +39,17 @@ export default {
       alert('Single click!');
     },
     newTab() {
-      // Open a new tab
-      window.open("http://127.0.0.1:8080/", "_blank");
+      // Opens a new tab at the base URL of the current environment
+      window.open("/", "_blank");
     },
     newWindow() {
-      // Open a new window
-      window.open("http://127.0.0.1:8080/", "_blank", "width=600,height=400");
+      // Opens a new window at the base URL
+      window.open("/", "_blank", "width=600,height=400");
     },
     newWindowMessage() {
-      // Open a new window with a message
+      // Opens a new window at the base URL with a message
       alert('New window message!');
-      window.open("http://127.0.0.1:8080/", "_blank");
+      window.open("/", "_blank");
     }
   }
 }
