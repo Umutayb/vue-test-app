@@ -1,8 +1,8 @@
-name: Deploy Vue Site to Pages
+name: 🌐 Deploy Vue Site to Pages
 
 on:
   push:
-    branches: ["main"] # Change this if your default branch is different
+    branches: ["main"]
 
 permissions:
   contents: read
@@ -13,34 +13,34 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code
+      - name: 🗂️ Checkout Code
         uses: actions/checkout@v4
 
-      - name: ⚙️  Set up Node.js
+      - name: ⚙️ Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 'latest'
           cache: 'npm'
 
-      - name: Install Dependencies
+      - name: 🧩 Install Dependencies
         run: |
           npm install
           npm install html-webpack-plugin --save-dev
 
-      - name: Build Project
+      - name: 🏗️ Build Project
         run: npm run build
 
-      - name: Copy index.html to 404.html for SPA routing
+      - name: 📑 Copy index.html to 404.html for SPA routing
         run: cp dist/index.html dist/404.html
 
-      - name: Setup Pages
+      - name: 🛠️ Setup Pages
         uses: actions/configure-pages@v4
 
-      - name: Upload Artifact
+      - name: 📦 Upload Artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: './dist'
 
-      - name: Deploy to GitHub Pages
+      - name: 🚀 Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
