@@ -1,4 +1,5 @@
 <template>
+  <MobileTopBar />
   <AppSidebar />
   <main class="page-content">
     <AppBreadcrumb />
@@ -9,11 +10,13 @@
 <script>
 import AppSidebar from '@/components/layout/AppSidebar.vue';
 import AppBreadcrumb from '@/components/layout/AppBreadcrumb.vue';
+import MobileTopBar from '@/components/layout/MobileTopBar.vue';
 
 export default {
   components: {
     AppSidebar,
     AppBreadcrumb,
+    MobileTopBar,
   },
 };
 </script>

@@ -12,6 +12,12 @@
   --accent-light: #ede9fe;
   --radius: 8px;
   --sidebar-width: 240px;
+  --topbar-height: 56px;
+  --rail-width: 60px;
+  --z-topbar: 100;
+  --z-sidebar-backdrop: 150;
+  --z-sidebar-overlay: 200;
+  --z-flyout: 100;
 }
 
 .dark {
@@ -128,4 +134,30 @@ input[type="submit"] {
   color: var(--text-secondary);
   font-size: 0.875rem;
   margin-bottom: 1.5rem;
+}
+
+/* ===== Responsive: Tablet (768px – 1023px) ===== */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .page-content {
+    margin-left: var(--rail-width);
+    padding: 1.5rem;
+  }
+}
+
+/* ===== Responsive: Mobile (< 768px) ===== */
+@media (max-width: 767px) {
+  .page-content {
+    margin-left: 0;
+    padding: 1rem;
+    padding-top: calc(var(--topbar-height) + 1rem);
+  }
+
+  .mobile-top-bar {
+    display: flex;
+  }
+
+  /* Force single-column grid on mobile for category cards */
+  .category-grid {
+    grid-template-columns: 1fr !important;
+  }
 }
