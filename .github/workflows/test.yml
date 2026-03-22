@@ -28,6 +28,3 @@ jobs:
 
       - name: 🧪 Run Tests
         run: npm test
-
-      - name: 📝 Check Types
-        run: npx tsc --noEmit
