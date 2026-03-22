@@ -1,11 +1,11 @@
 <template>
   <aside class="sidebar" data-testid="nav-sidebar">
     <!-- Logo -->
-    <div class="sidebar-header">
+    <router-link to="/" class="sidebar-header" data-testid="sidebar-home-link">
       <div class="sidebar-logo"></div>
       <span class="sidebar-title">UI Components</span>
       <span class="sidebar-version">v0.1</span>
-    </div>
+    </router-link>
 
     <!-- Navigation -->
     <nav class="sidebar-nav">
@@ -79,6 +79,8 @@ export default {
   display: flex;
   align-items: center;
   gap: 0.625rem;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .sidebar-logo {
