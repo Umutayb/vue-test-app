@@ -31,6 +31,16 @@
   --accent: #818cf8;
   --accent-hover: #6366f1;
   --accent-light: rgba(99, 102, 241, 0.15);
+  --otp-purple-bg1: #312e81;
+  --otp-purple-bg2: #3730a3;
+  --otp-purple-border: #4f46e5;
+  --otp-amber-bg1: #78350f;
+  --otp-amber-bg2: #92400e;
+  --otp-amber-border: #b45309;
+  --otp-tag-green-bg: #052e16;
+  --otp-tag-green-text: #86efac;
+  --otp-tag-red-bg: #450a0a;
+  --otp-tag-red-text: #fca5a5;
 }
 
 /* ===== Global Reset ===== */

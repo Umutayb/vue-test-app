@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 id="title">Full Form</h1>
+    <h1 id="title">Submission Form</h1>
     <form @submit.prevent="submitForm">
       <label for="name">Name:</label><br>
       <input type="text" id="name" name="name" placeholder="John Smith" v-model="formData.name"><br>

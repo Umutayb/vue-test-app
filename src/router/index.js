@@ -12,6 +12,7 @@ import CheckboxesPage from "@/views/tools/CheckboxesPage.vue";
 import SlidersPage from "@/views/tools/SlidersPage.vue";
 import FileUploadPage from "@/views/tools/FileUploadPage.vue";
 import AutocompletePage from "@/views/tools/AutocompletePage.vue";
+import OtpInputPage from "@/views/tools/OtpInputPage.vue";
 import TabsPage from "@/views/tools/TabsPage.vue";
 import AccordionPage from "@/views/tools/AccordionPage.vue";
 import ProgressPage from "@/views/tools/ProgressPage.vue";
@@ -32,6 +33,7 @@ import ResizablePage from "@/views/tools/ResizablePage.vue";
 import DragProgressPage from "@/views/tools/DragProgressPage.vue";
 import GalleryPage from "@/views/tools/GalleryPage.vue";
 import CarouselPage from "@/views/tools/CarouselPage.vue";
+import ProductCarouselPage from "@/views/tools/ProductCarouselPage.vue";
 import LoginFormPage from "@/views/tools/LoginFormPage.vue";
 import PiniaCounterPage from "@/views/tools/PiniaCounterPage.vue";
 import LongListPage from "@/views/tools/LongListPage.vue";
@@ -54,6 +56,7 @@ const componentMap = {
   sliders: SlidersPage,
   fileUpload: FileUploadPage,
   autocomplete: AutocompletePage,
+  otpInput: OtpInputPage,
   tabs: TabsPage,
   accordion: AccordionPage,
   progress: ProgressPage,
@@ -71,6 +74,7 @@ const componentMap = {
   dragProgress: DragProgressPage,
   gallery: GalleryPage,
   carousel: CarouselPage,
+  productCarousel: ProductCarouselPage,
   loginForm: LoginFormPage,
   piniaCounter: PiniaCounterPage,
   longList: LongListPage,
@@ -94,28 +98,30 @@ const descriptionMap = {
   sliders: "Range sliders — single, dual-handle, and stepped",
   fileUpload: "Single, multiple, and drag-and-drop file inputs",
   autocomplete: "Input with filtered dropdown suggestions and keyboard navigation",
+  otpInput: "OTP-style digit inputs with paste autocomplete and configurable length",
   tabs: "Tab navigation with switchable content panels",
   accordion: "Collapsible accordion items with expand/collapse controls",
   progress: "Determinate and animated progress indicators",
   table: "Sortable, filterable, paginated data table with row selection",
-  modal:          "Modal dialogs — open, close, confirm, dismiss",
-  toast:          "Toast notifications — success, error, warning, info with auto-dismiss",
-  tooltip:        "Hover tooltips and click-triggered popovers",
-  drawer:         "Slide-in drawer panel from left or right",
-  kanban:         "Drag-and-drop Kanban board with three columns",
-  dropzone:       "Drag items between source list and drop target zone",
+  modal: "Modal dialogs — open, close, confirm, dismiss",
+  toast: "Toast notifications — success, error, warning, info with auto-dismiss",
+  tooltip: "Hover tooltips and click-triggered popovers",
+  drawer: "Slide-in drawer panel from left or right",
+  kanban: "Drag-and-drop Kanban board with three columns",
+  dropzone: "Drag items between source list and drop target zone",
   infiniteScroll: "Scrollable list that loads more items at the bottom",
-  loading:        "Spinner, skeleton, progress bar, and button loading states",
-  dynamicForm:    "Form with dynamically added and removed fields",
+  loading: "Spinner, skeleton, progress bar, and button loading states",
+  dynamicForm: "Form with dynamically added and removed fields",
   sliderIndicator: "Range slider with a floating value bubble that follows the thumb",
   dragProgress: "Click or drag on a progress bar to set its fill percentage",
-  gallery:      "Image grid with click-to-zoom overlay",
-  carousel:     "Auto-playing slideshow with prev/next navigation and dot indicators",
-  loginForm:    "Login form with validation, error, and success states",
+  gallery: "Image grid with click-to-zoom overlay",
+  carousel: "Auto-playing slideshow with prev/next navigation and dot indicators",
+  productCarousel: "Product showcase carousel with real images for visual testing",
+  loginForm: "Login form with validation, error, and success states",
   piniaCounter: "Shared Pinia counter with increment, decrement, and reset",
-  longList:     "200-item list with live search filter and count display",
-  multistep:    "Three-step form wizard with validation and step indicators",
-  stateViewer:  "Toggle between empty, loading, error, and populated UI states",
+  longList: "200-item list with live search filter and count display",
+  multistep: "Three-step form wizard with validation and step indicators",
+  stateViewer: "Toggle between empty, loading, error, and populated UI states",
 };
 
 // Import navigation config for meta lookup
