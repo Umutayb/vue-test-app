@@ -38,18 +38,22 @@ export default {
     handleClick() {
       alert('Single click!');
     },
+    getHomeUrl() {
+      // Let Vue Router safely resolve the full URL for the home route.
+      // If your home route is named 'home' in your router config, 
+      // you can also use { name: 'home' } instead of { path: '/' }.
+      const route = this.$router.resolve({ path: '/' });
+      return route.href;
+    },
     newTab() {
-      // Opens a new tab at the base URL of the current environment
-      window.open("/", "_blank");
+      window.open(this.getHomeUrl(), "_blank");
     },
     newWindow() {
-      // Opens a new window at the base URL
-      window.open("/", "_blank", "width=600,height=400");
+      window.open(this.getHomeUrl(), "_blank", "width=600,height=400");
     },
     newWindowMessage() {
-      // Opens a new window at the base URL with a message
       alert('New window message!');
-      window.open("/", "_blank");
+      window.open(this.getHomeUrl(), "_blank");
     }
   }
 }
