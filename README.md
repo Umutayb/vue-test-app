@@ -1,6 +1,6 @@
 # 🚀 Vue Test App
 
-**[🌐 Try it out!](https://umutayb.github.io/vue-test-app/)**
+**[🌐 Try it out!](https://civitas-cerebrum.github.io/vue-test-app/)**
 
 Your favorite playground for UI test automation — **37 components** across **8 categories**, all built with Vue 3 and ready to be poked, prodded, and automated against.
 
