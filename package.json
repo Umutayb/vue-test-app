@@ -47,6 +47,9 @@
     },
     "rules": {}
   },
+  "overrides": {
+    "flatted": "^3.4.2"
+  },
   "browserslist": [
     "> 1%",
     "last 2 versions",
