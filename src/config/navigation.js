@@ -84,6 +84,7 @@ export const navigation = [
       { label: "Long List", routeName: "longList", path: "/long-list" },
       { label: "Multi-step Form", routeName: "multistep", path: "/multistep" },
       { label: "State Viewer", routeName: "stateViewer", path: "/state-viewer" },
+      { label: "Enhanced Selectors", routeName: "enhancedSelectors", path: "/enhanced-selectors" },
     ]
   },
 ];

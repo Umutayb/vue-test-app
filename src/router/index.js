@@ -39,6 +39,7 @@ import PiniaCounterPage from "@/views/tools/PiniaCounterPage.vue";
 import LongListPage from "@/views/tools/LongListPage.vue";
 import MultistepPage from "@/views/tools/MultistepPage.vue";
 import StateViewerPage from "@/views/tools/StateViewerPage.vue";
+import EnhancedSelectorsPage from "@/views/tools/EnhancedSelectorsPage.vue";
 
 const componentMap = {
   radiobuttons: RadioButtonsPage,
@@ -80,6 +81,7 @@ const componentMap = {
   longList: LongListPage,
   multistep: MultistepPage,
   stateViewer: StateViewerPage,
+  enhancedSelectors: EnhancedSelectorsPage,
 };
 
 const descriptionMap = {
@@ -122,6 +124,7 @@ const descriptionMap = {
   longList: "200-item list with live search filter and count display",
   multistep: "Three-step form wizard with validation and step indicators",
   stateViewer: "Toggle between empty, loading, error, and populated UI states",
+  enhancedSelectors: "Test page for role-based locators, regex text, force click, iframe, and visibility probes",
 };
 
 // Import navigation config for meta lookup
