@@ -47,7 +47,7 @@
           <span v-show="!isLoading">Sign In</span>
         </button>
 
-        <p class="hint">Use the demo credentials to sign in</p>
+        <p class="hint" data-testid="login-hint">Hint: admin / password123</p>
       </form>
     </div>
   </div>
@@ -86,7 +86,7 @@ export default {
       this.isLoading = true;
       this._loginTimer = setTimeout(() => {
         this.isLoading = false;
-        if (this.username === (process.env.VUE_APP_DEMO_USER || 'admin') && this.password === (process.env.VUE_APP_DEMO_PASS || 'demo-pass')) {
+        if (this.username === (process.env.VUE_APP_DEMO_USER || 'admin') && this.password === (process.env.VUE_APP_DEMO_PASS || 'password123')) {
           this.loginSuccess = true;
         } else {
           this.loginError = 'Invalid username or password';
